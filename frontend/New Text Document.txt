@@ -1,0 +1,100 @@
+https://www.youtube.com/watch?v=glMRU2ER1q8&t=1689s
+##################################################################################################
+1)npx create-react-app .  //(rafce)
+##################################################################################################
+2)npm install @mui/material @emotion/react @emotion/styled
+##################################################################################################
+3)npm install @mui/icons-material @mui/material @emotion/styled @emotion/react
+##################################################################################################
+##################################################################################################			
+				tailwind installation and setup(https://tailwindcss.com/docs/installation)(https://www.youtube.com/watch?v=glMRU2ER1q8&t=1689s)(29:00)
+4)npm install -D tailwindcss
+npx tailwindcss init        (install these 2 for tailwind)
+#################3
+5) remove all the code in tailwind.config.js and paste 
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+#########
+6)paste below code in index.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+##################################################################################################
+##################################################################################################
+
+				navbar tailwind (https://tailwindui.com/components/ecommerce/components/store-navigation) (copy code in react) (rafce)
+
+7)Copyied code should be past in customer/components/Navigation/Nagivation.jsx
+
+8)change export default name from example to Nagivation
+
+9)Import navigation in app.js (import Nagivation from './customer/components/Navigation/Nagivation';  and inside return <Nagivation />)
+
+10)if some coponents are not istalled go to browser and see error and copy error and install (eg- npm i @headlessui/react and npm i @heroicons/react) (34:20)
+##################################################################################################
+##################################################################################################
+
+				tailwind carousel(home page main slider)
+11)install (npm i react-alice-carousel)
+12)https://maxmarinich.github.io/react-alice-carousel/#lazy-loading
+13) paste in MainCarousel.jsx inside Homecarousel/Maincarousel.jsx
+##################################################################################################
+##################################################################################################
+
+				how to add image 
+14) make images folder inside public folder and direct add image (<img src="images/1.png" alt="logo" />)
+##################################################################################################
+##################################################################################################
+(rafce)
+15) making homeSectionCard (ye home page pe jo product hai vo hai )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
