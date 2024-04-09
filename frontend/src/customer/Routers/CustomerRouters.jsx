@@ -37,7 +37,7 @@ const CustomerRouters = () => {
                 {/* <Checkout /> */}
             </Routes>
             <div>
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </div>
     )

@@ -252,7 +252,7 @@ export default function Navigation() {
                 </p> */}
 
                 <nav aria-label="Top" className="mx-auto ">
-                    <div className="border-b border-gray-200  pb-[20px]">
+                    <div className="border-b border-gray-200  pb-[20px]  ">
                         <div className="flex h-16 items-center px-11">
                             <button
                                 type="button"
@@ -282,8 +282,8 @@ export default function Navigation() {
                             </div>
 
                             {/* Flyout menus */}
-                            <Popover.Group className="hidden lg:ml-8 lg:block lg:self-stretch z-10">
-                                <div className="flex h-full space-x-8">
+                            <Popover.Group className="hidden lg:ml-auto lg:mr lg:block lg:self-stretch z-10">
+                                <div className="flex h-full space-x-8  justify-center items-center ">
                                     {navigation.categories.map((category) => (
                                         <Popover key={category.name} className="flex">
                                             {({ open, close }) => (
