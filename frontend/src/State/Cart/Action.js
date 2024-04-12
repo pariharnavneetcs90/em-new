@@ -36,7 +36,7 @@ export const removeCartItem = (cartItemId) => async (dispatch) => {
     }
 }
 
-export const updateCartItem = (cartItemId) => async (dispatch) => {
+export const updateCartItem = (cartItemId, reqData) => async (dispatch) => {
     dispatch({ type: UPDATE_CART_ITEM_REQUEST })
 
     try {
