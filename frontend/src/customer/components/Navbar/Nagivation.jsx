@@ -40,9 +40,9 @@ export default function Navigation() {
   };
 
   const handleSearch = (searchQuery) => {
-    // api here 
-    console.log('Searching for:', searchQuery);
-};
+    // api here
+    console.log("Searching for:", searchQuery);
+  };
 
   const handleOpen = () => {
     setOpenAuthModal(true);
@@ -223,20 +223,6 @@ export default function Navigation() {
                     </a>
                   </div>
                 </div>
-
-                <div className="border-t border-gray-200 px-4 py-6">
-                  <a href="/" className="-m-2 flex items-center p-2">
-                    <img
-                      src="https://tailwindui.com/img/flags/flag-canada.svg"
-                      alt=""
-                      className="block h-auto w-5 flex-shrink-0"
-                    />
-                    <span className="ml-3 block text-base font-medium text-gray-900">
-                      CAD
-                    </span>
-                    <span className="sr-only">, change currency</span>
-                  </a>
-                </div>
               </Dialog.Panel>
             </Transition.Child>
           </div>
@@ -265,15 +251,9 @@ export default function Navigation() {
                 <span className="sr-only">Your Company</span>
 
                 <img
-                  src="images/17.png"
-                //   alt="Shopwithzosh"
-                  className="h-[100px] w-[100px] mr-10 "
+                  className="h-[90x] w-[90px] mr-10 "
+                  src="https://res.cloudinary.com/du5p1rnil/image/upload/f_auto,q_auto/v1/empressa/trlajilv4tdjxco53foy"
                 />
-                {/* <img
-                                    src="https://res.cloudinary.com/ddkso1wxi/image/upload/v1675919455/Logo/Copy_of_Zosh_Academy_nblljp.png"
-                                    alt="Shopwithzosh"
-                                    className="h-8 w-8 mr-2"
-                                /> */}
               </div>
 
               {/* Flyout menus */}
@@ -465,7 +445,7 @@ export default function Navigation() {
 
                 {/* Search */}
                 <div className="flex lg:ml-6">
-                <SearchComponent onSearch={handleSearch} />
+                  <SearchComponent onSearch={handleSearch} />
                   {/* <p className="p-2 text-gray-400 hover:text-gray-500">
                     <span className="sr-only">Search</span>
                     <MagnifyingGlassIcon

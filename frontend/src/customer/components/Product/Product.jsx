@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import ProductCard from './ProductCard'
-import { mens_kurta } from './../../../Data/mens_kurta';
-import { useParams, useLocation } from 'react-router-dom'; // Import useLocation
+// import { mens_kurta } from './../../../Data/mens_kurta';
+import { useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findProducts } from './../../../State/Product/Action';
 
@@ -10,7 +10,7 @@ const Product = () => {
     const param = useParams();
     const dispatch = useDispatch();
     const { products } = useSelector(store => store);
-    const location = useLocation(); // Use useLocation hook
+    const location = useLocation();
 
     const decodedQueryString = decodeURIComponent(location.search);
     const searchParams = new URLSearchParams(decodedQueryString);

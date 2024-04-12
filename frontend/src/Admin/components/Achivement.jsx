@@ -20,15 +20,16 @@ const Achivement = () => {
     <Card clasName='' sx={{ position: 'relative', bgcolor: "#242B2E", color: "white" }}>
       <CardContent>
         <Typography variant='h6' sx={{ letterSpacing: '0.25px' }}>
-          Shop With Zosh
+          Empressa
         </Typography>
-        <Typography variant='body2' >Congratulations 🥳</Typography>
-        <Typography variant='h5' sx={{ my: 3.1, color: 'primary.main' }}>420.8k</Typography>
+        {/* <Typography variant='body2' >Congratulations 🥳</Typography> */}
+        {/* Variable for the total no of sales */}
+        <Typography variant='h5' sx={{ my: 3.1, color: 'primary.main' }}> Variable X</Typography>
 
         <Button size='small' variant='contained'>View Sales</Button>
 
-        <TrignleImg src={''} />
-        <TrophyImg alt='trophy' src='https://ecommerce-codewithzosh.vercel.app/images/misc/trophy.png' />
+        {/* <TrignleImg src={''} /> */}
+        {/* <TrophyImg alt='trophy' src='https://ecommerce-codewithzosh.vercel.app/images/misc/trophy.png' /> */}
       </CardContent>
     </Card>
   )

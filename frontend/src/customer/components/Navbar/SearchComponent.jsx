@@ -1,7 +1,7 @@
-import { useState } from "react";
-import React from "react";
+// SearchComponent.jsx
 
-import {MagnifyingGlassIcon} from "@heroicons/react/24/outline";
+import React, { useState } from "react";
+import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 
 const SearchComponent = ({ onSearch }) => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -11,6 +11,7 @@ const SearchComponent = ({ onSearch }) => {
   };
 
   const handleSearch = () => {
+    // Call the onSearch prop and pass the search query
     onSearch(searchQuery);
   };
 
@@ -20,7 +21,7 @@ const SearchComponent = ({ onSearch }) => {
         type="text"
         value={searchQuery}
         onChange={handleInputChange}
-        placeholder="Search"
+        placeholder="Search..."
         className="p-2 text-gray-400 hover:text-gray-500 border border-gray-300 rounded-md focus:outline-none focus:border-gray-500"
       />
       <button

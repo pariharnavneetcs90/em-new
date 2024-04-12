@@ -76,10 +76,10 @@ const MonthlyOverview = () => {
 
                         <Box component='span' sx={{ fontWeight: 600 }}>
 
-                            Total 48.5% growth
+                            {/* Total 48.5% growth */}
 
                         </Box>
-                        😎 this month
+                        {/* 😎 this month */}
                     </Typography>
                 }
                 titleTypographyProps={{
