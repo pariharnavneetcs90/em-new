@@ -270,7 +270,7 @@ export default function Navigation() {
 
                                 <img
                                     src="images/17.png"
-                                    alt="Shopwithzosh"
+                                    alt="Empressa"
                                     className="h-[100px] w-[100px] mr-10 "
                                 />
                                 {/* <img

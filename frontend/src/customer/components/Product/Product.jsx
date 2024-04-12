@@ -32,7 +32,7 @@ const Product = () => {
             minDiscount: disccount || 0,
             sort: sortValue || "price_low",
             pageNumber: pageNumber,
-            pageSize: 20,
+            pageSize: 30,
             stock: stock,
         }
         dispatch(findProducts(data))

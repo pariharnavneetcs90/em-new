@@ -15,7 +15,7 @@ const MainCarousel = () => (
         mouseTracking
         items={items}
         autoPlay
-        autoPlayInterval={5000}
+        autoPlayInterval={1000}
         infinite
     />
 );
