@@ -11,11 +11,6 @@ import { Route, Routes } from 'react-router-dom';
 import CustomerRouters from './customer/Routers/CustomerRouters';
 import AdminRouters from './customer/Routers/AdminRouters';
 
-
-
-
-
-
 function App() {
   return (
     <div>
@@ -24,7 +19,6 @@ function App() {
         <Route path='/*' element={<CustomerRouters />}></Route>
         <Route path='/admin/*' element={<AdminRouters />}></Route>
       </Routes>
-
 
       <div>
         {/* <Product /> */}
@@ -35,9 +29,7 @@ function App() {
       </div>
 
     </div>
-
   );
 }
 
 export default App;
-

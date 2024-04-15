@@ -1,16 +1,14 @@
-import React, { useEffect } from 'react'
-import ProductCard from './ProductCard'
-import { mens_kurta } from './../../../Data/mens_kurta';
-import { useParams, useLocation } from 'react-router-dom'; // Import useLocation
+import React, { useEffect } from 'react';
+import { useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import ProductCard from './ProductCard';
 import { findProducts } from './../../../State/Product/Action';
 
 const Product = () => {
-
     const param = useParams();
     const dispatch = useDispatch();
     const { products } = useSelector(store => store);
-    const location = useLocation(); // Use useLocation hook
+    const location = useLocation();
 
     const decodedQueryString = decodeURIComponent(location.search);
     const searchParams = new URLSearchParams(decodedQueryString);
@@ -38,19 +36,11 @@ const Product = () => {
             stock: stock,
         };
         dispatch(findProducts(data));
-    }, [param.lavelThree,
-        colorValue,
-        sizeValue,
-        priceValue,
-        disccount,
-        sortValue,
-        pageNumber,
-        stock,]);
+    }, [param.lavelThree, colorValue, sizeValue, priceValue, disccount, sortValue, pageNumber, stock]);
 
     return (
         <div className='flex flex-wrap justify-center bg-white py-5'>
             {products.products && products.products?.content.map((item) => <ProductCard key={item.id} product={item} />)}
-            {/* {mens_kurta.map((item) => <ProductCard product={item} />)} */}
         </div>
     );
 };
