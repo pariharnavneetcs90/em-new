@@ -11,7 +11,7 @@ const MiddleMassage = () => {
 
                 <div className="basis-1/2 ">
                     <div className=' mt-[100px] pl-[100px]'>
-                        <h1 className='text-6xl text-[#522a7a] font-serif '>
+                        <h1 className='text-6xl text-[#913832] font-serif '>
                             Smash The Patriarchy
                         </h1>
                         <p className='mt-[20px] text-xl font-mono' >
@@ -30,7 +30,7 @@ const MiddleMassage = () => {
 
                 <div className="basis-1/2 ">
                     <div className=' mt-[100px] pr-[100px]'>
-                        <h1 className='text-6xl text-[#522a7a] font-serif'>
+                        <h1 className='text-6xl text-[#708090] font-serif'>
 
                             Burn The Patriarchy, Not The Planet
                         </h1>
@@ -54,7 +54,7 @@ const MiddleMassage = () => {
 
                 <div className="basis-1/2 ">
                     <div className=' mt-[50px] pl-[100px] '>
-                        <h1 className='text-6xl text-[#522a7a] font-serif'>
+                        <h1 className='text-6xl text-[#44496c] font-serif'>
                             Women Empowerment
                         </h1>
                         <p className='mt-[20px] text-xl font-mono' >

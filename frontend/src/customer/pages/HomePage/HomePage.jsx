@@ -17,23 +17,23 @@ export const HomePage = () => {
             <VideoSection />
             <MainCarousel />
 
-            {/* <div className='space-y py-20 flex flex-col justify-center px-5 lg:px-10'>
+            <div className='space-y py-20 flex flex-col justify-center px-5 lg:px-10'>
                 < HomeSectionCarosel data={mens_kurta} sectionName={"Top product"} />
-                < HomeSectionCarosel data={mens_kurta} sectionName={" product"} />
-                < HomeSectionCarosel data={mens_kurta} sectionName={"Top product"} />
-            </div> */}
+                {/* < HomeSectionCarosel data={mens_kurta} sectionName={" product"} /> */}
+                {/* < HomeSectionCarosel data={mens_kurta} sectionName={"Top product"} /> */}
+            </div>
             {/* <MyCaroselTest /> */}
 
 
 
-            {/* <div>
+            <div>
                 <MiddleMassage />
-            </div> */}
+            </div>
 
-            {/* <MiddleBanner /> */}
-            {/* <div className='space-y py-20 flex flex-col justify-center px-5 lg:px-10'>
+            <MiddleBanner />
+            <div className='space-y py-20 flex flex-col justify-center px-5 lg:px-10'>
                 < HomeSectionCarosel />
-            </div> */}
+            </div>
 
         </div>
     )

@@ -24,7 +24,7 @@ const ProductsTable = () => {
             minDiscount: 0,
             sort: "price_low",
             pageNumber: 1,
-            pageSize: 20,
+            pageSize: 30,
             stock: "",
         }
         dispatch(findProducts(data))

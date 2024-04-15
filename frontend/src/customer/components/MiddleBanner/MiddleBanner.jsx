@@ -9,7 +9,7 @@ const MiddleBanner = () => {
                     src="images/10.png"
                     alt=""
                 /> */}
-                <img className='object-cover object-top w-full h-full mt-[200px]' src="images/7.png" alt='asd' />
+                <img className='object-cover object-top w-full h-full mt-[200px]' src="images/11.png" alt='asd' />
             </div>
         </>
 

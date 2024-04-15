@@ -12,6 +12,7 @@ const items = [
 ];
 
 const MainCarousel = () => (
+
   <AliceCarousel
     mouseTracking
     items={items}

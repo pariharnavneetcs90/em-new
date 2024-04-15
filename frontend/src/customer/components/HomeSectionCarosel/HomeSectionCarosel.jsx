@@ -46,7 +46,7 @@ const HomeSectionCarosel = () => {
 
     return (
         <>
-            <h2 className='text-2xl font-extrabold text-[#522a7a] text-center'> Top product</h2>
+            <h2 className='text-4xl text-[#913832] font-serif text-center'> Our  Collection </h2>
             <div className=" mt-[50px] ">
 
                 <div className='relative p-5' >

@@ -40,9 +40,9 @@ export default function Navigation() {
   };
 
   const handleSearch = (searchQuery) => {
-    // api here
-    console.log("Searching for:", searchQuery);
-  };
+    // api here 
+    console.log('Searching for:', searchQuery);
+};
 
   const handleOpen = () => {
     setOpenAuthModal(true);
@@ -251,8 +251,9 @@ export default function Navigation() {
                 <span className="sr-only">Your Company</span>
 
                 <img
-                  className="h-[90x] w-[90px] mr-10 "
-                  src="https://res.cloudinary.com/du5p1rnil/image/upload/f_auto,q_auto/v1/empressa/trlajilv4tdjxco53foy"
+                  src="images/17.png"
+                  //   alt="Shopwithzosh"
+                  className="h-[100px] w-[100px] mr-10 "
                 />
               </div>
 
