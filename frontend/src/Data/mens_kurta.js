@@ -1,6 +1,6 @@
 export const mens_kurta = [
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/ar_1:1,c_auto,g_auto/dress_1_jmevjl.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-crew-neck-sweatshirt-black-front-608bf17e2e014_1024x1024@2x.jpg?v=1619784071",
         "brand": "WOXEN",
         "title": "Women Kurta and Pant Set Art Silk",
         "color": "",
@@ -11,7 +11,7 @@ export const mens_kurta = [
         "id": 1
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_auto,h_504,w_504/empressa/i8psxckpsc45hvkybkc7.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-premium-t-shirt-black-front-608bf06f5e107_1024x1024@2x.jpg?v=1619783800",
         "brand": "LIBAS",
         "title": "Women Kurta and Palazzo Set Cotton Blend",
         "color": "",
@@ -22,7 +22,7 @@ export const mens_kurta = [
         "id": 2
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_north,h_504,w_504/empressa/d9yuqdqofujehscgxbsn.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-premium-t-shirt-black-front-608c2276bc605_1024x1024@2x.jpg?v=1619796610",
         "brand": "Samah",
         "title": "Women Kurta, Pant And Dupatta Set Silk Blend, Cotton Bl...",
         "color": "",
@@ -33,7 +33,7 @@ export const mens_kurta = [
         "id": 3
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_auto,h_504,w_504/empressa/t9mgtsd6epjipyormvtb.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/files/unisex-heavy-blend-hoodie-light-pink-front-644bc859d409b_1024x1024@2x.jpg?v=1682688105",
         "brand": "Klosia",
         "title": "Women Kurta, Pant And Dupatta Set Viscose Rayon",
         "color": "",
@@ -43,7 +43,7 @@ export const mens_kurta = [
         "size": ""
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_auto,h_504,w_504/empressa/pl0dmqukkcrf2xlsevrw.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-heavy-blend-hoodie-maroon-front-619f0f0329349_1024x1024@2x.jpg?v=1637814027",
         "brand": "shoecom",
         "title": "Women Kurta and Palazzo Set Viscose Rayon",
         "color": "",
@@ -53,7 +53,7 @@ export const mens_kurta = [
         "size": ""
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_auto,h_504,w_504/empressa/hvc6xxhn3hbxytmjbagm.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-heavy-blend-hoodie-black-front-619f0f0329c65_1024x1024@2x.jpg?v=1637814028",
         "brand": "PRISCA",
         "title": "Women Kurta and Pant Set Viscose Rayon",
         "color": "",
@@ -63,7 +63,7 @@ export const mens_kurta = [
         "size": ""
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_auto,h_504,w_504/empressa/h7lreshrhawmhdcv3nor.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-heavy-blend-hoodie-dark-heather-front-619f0f032a216_1024x1024@2x.jpg?v=1637814030",
         "brand": "The Style Story",
         "title": "Women Kurta, Pyjama & Dupatta Set Viscose Rayon",
         "color": "",
@@ -73,7 +73,7 @@ export const mens_kurta = [
         "size": ""
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_auto,h_504,w_504/empressa/dmgyii8utjawiakopqth.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-heavy-blend-hoodie-sport-grey-front-619f0f032aab0_1024x1024@2x.jpg?v=1637814032",
         "brand": "Marudhara",
         "title": "Women Kurta and Pant Set Pure Cotton",
         "color": "",
@@ -83,7 +83,7 @@ export const mens_kurta = [
         "size": ""
     },
     {
-        "image": "https://res.cloudinary.com/du5p1rnil/image/upload/c_crop,g_auto,h_504,w_504/empressa/qe6rvcn18l6vr4omngdd.jpg",
+        "image": "https://artwithmanasi.com/cdn/shop/products/unisex-heavy-blend-hoodie-light-blue-front-619f0f032b69b_1024x1024@2x.jpg?v=1637814033",
         "brand": "Vbuyz",
         "title": "Women Kurta, Pant And Dupatta Set Pure Cotton",
         "color": "",

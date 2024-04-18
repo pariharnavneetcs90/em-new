@@ -5,7 +5,7 @@ import HomeSectionCarosel from '../../components/HomeSectionCarosel/HomeSectionC
 import MiddleMassage from '../../components/MiddleMassage/MiddleMassage'
 
 import MiddleBanner from '../../components/MiddleBanner/MiddleBanner'
-import MyCaroselTest from '../../components/MyCaroselTest/MyCaroselTest'
+// import MyCaroselTest from '../../components/MyCaroselTest/MyCaroselTest'
 import { mens_kurta } from '../../../Data/mens_kurta'
 import VideoSection from '../../components/VideoSection/VideoSection'
 

@@ -1,6 +1,6 @@
 
 import './App.css';
-import Nagivation from './customer/components/Navbar/Nagivation';
+import Nagivation from './customer/components/Navbar/Head';
 import { HomePage } from './customer/pages/HomePage/HomePage';
 import Footer from './customer/components/Footer/Footer';
 import Product from './customer/components/Product/Product';

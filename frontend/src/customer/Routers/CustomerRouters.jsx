@@ -2,7 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import { HomePage } from '../pages/HomePage/HomePage'
 import CartEcom from '../components/CartEcom/Cart'
-import Navigation from '../components/Navbar/Nagivation'
+import { Head } from '../components/Navbar/Head'
 import Footer from '../components/Footer/Footer'
 import Product from '../components/Product/Product'
 import ProductDetails from '../components/ProductDetails/ProductDetails'
@@ -15,7 +15,7 @@ const CustomerRouters = () => {
         <div>
             <div>
 
-                <Navigation />
+                <Head />
             </div>
             <Routes>
                 <Route path='/login' element={<HomePage />}></Route>

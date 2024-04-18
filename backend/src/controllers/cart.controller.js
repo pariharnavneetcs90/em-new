@@ -1,10 +1,6 @@
 const express=require("express");
 const router=express.Router();
-
 const cartService=require("../services/cart.service.js");
-
-
-
 const findUserCart = async (req, res) => {
     try {
       const user = req.user;
@@ -15,8 +11,6 @@ const findUserCart = async (req, res) => {
       res.status(500).json({ message: "Failed to get user cart.", error: error.message });
     }
 }
-  
-
   const addItemToCart = async (req, res) => {
     try {
       const user = req.user;
@@ -28,5 +22,4 @@ const findUserCart = async (req, res) => {
       res.status(500).json({ message: "Failed to add item to cart.", error: error.message });
     }
   }
-
   module.exports={findUserCart,addItemToCart};

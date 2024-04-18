@@ -1,42 +1,34 @@
-import { Button, Grid, TextField } from '@mui/material'
-import React, { useEffect } from 'react'
+import React, { useEffect } from 'react';
+import { Button, Grid, TextField } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getUser, register } from '../../State/Auth/Action';
-// import { store } from './../../State/store';
-// import { auth } from './../../State/store';
 
 const RegisterForm = () => {
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    const jwt = localStorage.getItem("jwt")
-    const { auth } = useSelector(store => store)
+    const jwt = localStorage.getItem("jwt");
+    const { jwt: authJwt } = useSelector(state => state.auth);
 
     useEffect(() => {
         if (jwt) {
-            dispatch(getUser(jwt))
+            dispatch(getUser(jwt));
         }
-
-    }, [jwt, auth.jwt])
-
+    }, [jwt, authJwt, dispatch]);
 
     const handleSubmit = (event) => {
-        event.preventDefault()
-
+        event.preventDefault();
         const data = new FormData(event.currentTarget);
-
         const userData = {
             firstName: data.get("firstName"),
             lastName: data.get("lastName"),
             email: data.get("email"),
             password: data.get("password"),
-
-        }
-        dispatch(register(userData))
+        };
+        dispatch(register(userData));
         console.log("user data", userData);
-        // dispatch(register(userData))
-    }
+    };
+
     return (
         <div>
             <form onSubmit={handleSubmit}>
@@ -106,7 +98,7 @@ const RegisterForm = () => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default RegisterForm
+export default RegisterForm;

@@ -9,7 +9,7 @@ const Product = () => {
 
     const param = useParams();
     const dispatch = useDispatch();
-    const { products } = useSelector(store => store);
+    const { products } = useSelector(state=> state);
     const location = useLocation();
 
     const decodedQueryString = decodeURIComponent(location.search);
