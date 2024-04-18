@@ -16,6 +16,9 @@ import {
 import {
   ChevronDownIcon,
   Bars3Icon,
+  MagnifyingGlassIcon,
+  UserCircleIcon,
+  ShoppingBagIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
@@ -29,7 +32,7 @@ import {
   TagIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
- 
+
 const navListMenuItems = [
   {
     title: "Products",
@@ -57,7 +60,7 @@ const navListMenuItems = [
     icon: TagIcon,
   },
 ];
- 
+
 function NavListMenu() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
@@ -91,7 +94,7 @@ function NavListMenu() {
       </Link>
     ),
   );
- 
+
   return (
     <React.Fragment>
       <Menu
@@ -111,15 +114,13 @@ function NavListMenu() {
               Blog
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`hidden h-3 w-3 transition-transform lg:block ${
-                  isMenuOpen ? "rotate-180" : ""
-                }`}
+                className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
+                  }`}
               />
               <ChevronDownIcon
                 strokeWidth={2.5}
-                className={`block h-3 w-3 transition-transform lg:hidden ${
-                  isMobileMenuOpen ? "rotate-180" : ""
-                }`}
+                className={`block h-3 w-3 transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
+                  }`}
               />
             </ListItem>
           </Typography>
@@ -136,10 +137,10 @@ function NavListMenu() {
     </React.Fragment>
   );
 }
- 
+
 function NavList() {
   return (
-    <List className="mt-4 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
+    <List className="mt-2 mb-6 p-0 lg:mt-0 lg:mb-0 lg:flex-row lg:p-1">
       <Typography
         as="Link"
         to="/"
@@ -164,17 +165,17 @@ function NavList() {
     </List>
   );
 }
- 
+
 export function Head() {
   const [openNav, setOpenNav] = React.useState(false);
- 
+
   React.useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false),
     );
   }, []);
- 
+
   return (
     <Navbar className="mx-auto" >
       <div className="flex items-center justify-between text-blue-gray-900">
@@ -184,12 +185,45 @@ export function Head() {
           variant="h6"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2"
         >
-          Empressa
+          <img
+            src="https://res.cloudinary.com/du5p1rnil/image/upload/v1713256699/empressa/ul5agvxpmsozwrahu5z0.png"
+            alt="Empressa"
+            className="h-[100px] w-[100px] mr-10 "
+          />
+          {/* <img
+            src="images/16.png"
+            alt="Empressa"
+            className="h-[100px] w-[100px] mr-10 "
+          /> */}
+
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
+
         <div className="hidden gap-2 lg:flex">
+          <MagnifyingGlassIcon className="mt-2 h-5 w-5 " />
+
+
+          {/* search code hear */}
+          <form action="" className="relative mx-auto w-max">
+            <input type="search"
+              className="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4" />
+
+            <svg xmlns="http://www.w3.org/2000/svg" className="absolute  " fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+            </svg>
+
+          </form>
+
+
+
+          {/* </div>
+            </div>
+          </div> */}
+
+          <UserCircleIcon className="mt-2 h-5 w-5 " />
+          <ShoppingBagIcon className="mt-2 h-5 w-5 " />
           <Button variant="text" size="sm" color="blue-gray">
             Log In
           </Button>
@@ -198,16 +232,16 @@ export function Head() {
           </Button>
         </div>
         <IconButton
-        variant="text"
-        color="blue-gray"
-        className="lg:hidden"
-        onClick={() => setOpenNav(!openNav)}
-        style={{ position: "relative" }}
+          variant="text"
+          color="blue-gray"
+          className="lg:hidden"
+          onClick={() => setOpenNav(!openNav)}
+          style={{ position: "relative" }}
         >
           {openNav ? (
             <XMarkIcon className="absolute inset-0 m-auto h-6 w-6" />
           ) : (
-            <Bars3Icon className="absolute inset-0  m-auto h-6 w-6"  />
+            <Bars3Icon className="absolute inset-0  m-auto h-6 w-6" />
           )}
         </IconButton>
       </div>
