@@ -22,13 +22,13 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 import {
-  Bars4Icon,
-  GlobeAmericasIcon,
+  // Bars4Icon,
+  // GlobeAmericasIcon,
   NewspaperIcon,
   PhoneIcon,
-  RectangleGroupIcon,
+  // RectangleGroupIcon,
   SquaresPlusIcon,
-  SunIcon,
+  // SunIcon,
   TagIcon,
   UserGroupIcon,
 } from "@heroicons/react/24/solid";
@@ -96,7 +96,7 @@ function NavListMenu() {
   );
 
   return (
-    <React.Fragment>
+    <>
       <Menu
         open={isMenuOpen}
         handler={setIsMenuOpen}
@@ -134,7 +134,7 @@ function NavListMenu() {
       <div className="block lg:hidden">
         <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
       </div>
-    </React.Fragment>
+    </>
   );
 }
 
@@ -177,7 +177,7 @@ export function Head() {
   }, []);
 
   return (
-    <Navbar className="mx-auto" >
+    <Navbar className="mx-auto bg-[#913832]">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"
@@ -190,47 +190,43 @@ export function Head() {
             alt="Empressa"
             className="h-[100px] w-[100px] mr-10 "
           />
-          {/* <img
-            src="images/16.png"
-            alt="Empressa"
-            className="h-[100px] w-[100px] mr-10 "
-          /> */}
+
 
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
 
-        <div className="hidden gap-2 lg:flex">
-          <MagnifyingGlassIcon className="mt-2 h-5 w-5 " />
+
+        {/* search code here  */}
+        <div className="hidden gap-2 lg:flex items-center">
+  <div className="relative">
+    <form action="" className="mx-auto w-max">
+      <input
+        type="search"
+        placeholder="Search"
+        className="peer cursor-pointer relative h-8 w-8 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4"
+      />
+      <img
+        src="https://res.cloudinary.com/du5p1rnil/image/upload/v1713751837/empressa/searchLogo.png"
+        alt="Search Icon"
+        className="absolute inset-y-0 left-0 my-auto ml-3 h-4 w-4"
+      />
+    </form>
+  </div>
+  <UserCircleIcon className="h-7 w-7 mt-1" />
+  <ShoppingBagIcon className="h-7 w-7" />
+  <Button variant="text" size="sm" color="blue-gray">
+    Log In
+  </Button>
+  <Button variant="gradient" size="sm">
+    Sign In
+  </Button>
+</div>
 
 
-          {/* search code hear */}
-          <form action="" className="relative mx-auto w-max">
-            <input type="search"
-              className="peer cursor-pointer relative z-10 h-12 w-12 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4" />
-
-            <svg xmlns="http://www.w3.org/2000/svg" className="absolute  " fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-            </svg>
-
-          </form>
 
 
-
-          {/* </div>
-            </div>
-          </div> */}
-
-          <UserCircleIcon className="mt-2 h-5 w-5 " />
-          <ShoppingBagIcon className="mt-2 h-5 w-5 " />
-          <Button variant="text" size="sm" color="blue-gray">
-            Log In
-          </Button>
-          <Button variant="gradient" size="sm">
-            Sign In
-          </Button>
-        </div>
         <IconButton
           variant="text"
           color="blue-gray"
