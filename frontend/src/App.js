@@ -1,6 +1,6 @@
 
 import './App.css';
-import Nagivation from './customer/components/Navbar/Head';
+import Head from './customer/components/Navbar/Head';
 import { HomePage } from './customer/pages/HomePage/HomePage';
 import Footer from './customer/components/Footer/Footer';
 import Product from './customer/components/Product/Product';
@@ -10,10 +10,6 @@ import Checkout from './customer/components/Checkout/Checkout';
 import { Route, Routes } from 'react-router-dom';
 import CustomerRouters from './customer/Routers/CustomerRouters';
 import AdminRouters from './customer/Routers/AdminRouters';
-
-
-
-
 
 
 function App() {

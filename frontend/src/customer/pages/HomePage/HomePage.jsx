@@ -14,7 +14,7 @@ export const HomePage = () => {
         <div>
 
 
-            {/* <VideoSection /> */}
+            <VideoSection />
             <MainCarousel />
 
             <div className='space-y py-20 flex flex-col justify-center px-5 lg:px-10'>

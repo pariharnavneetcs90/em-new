@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import ProductCard from './ProductCard'
-// import { mens_kurta } from './../../../Data/mens_kurta';
 import { useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findProducts } from './../../../State/Product/Action';
@@ -50,7 +49,6 @@ const Product = () => {
     return (
         <div className='flex flex-wrap justify-center bg-white py-5'>
             {products.products && products.products?.content.map((item) => <ProductCard key={item.id} product={item} />)}
-            {/* {mens_kurta.map((item) => <ProductCard product={item} />)} */}
         </div>
     );
 };
