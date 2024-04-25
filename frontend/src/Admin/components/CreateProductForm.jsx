@@ -143,7 +143,7 @@ const CreateProductForm = () => {
               onChange={handleChange}
             />
           </Grid>
-          <Grid item xs={12} sm={6}>
+          {/* <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
               label="Quantity"
@@ -152,7 +152,7 @@ const CreateProductForm = () => {
               onChange={handleChange}
               type="number"
             />
-          </Grid>
+          </Grid> */}
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
@@ -172,6 +172,14 @@ const CreateProductForm = () => {
               onChange={handleChange}
               type="number"
             />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+          <TextField fullWidth label="Category" 
+            name="category"
+            value={productData.category}
+            onChange={handleChange}
+            type="text"
+          />
           </Grid>
 
           {/* <Grid item xs={12} sm={4}>

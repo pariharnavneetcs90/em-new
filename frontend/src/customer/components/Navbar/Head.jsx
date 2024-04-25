@@ -1,5 +1,6 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Menu, MenuItem } from "@mui/material";
 import {
   Navbar,
   Collapse,
@@ -8,135 +9,21 @@ import {
   IconButton,
   List,
   ListItem,
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
 } from "@material-tailwind/react";
 import {
-  ChevronDownIcon,
-  Bars3Icon,
-  MagnifyingGlassIcon,
   UserCircleIcon,
   ShoppingBagIcon,
   XMarkIcon,
+  Bars3Icon,
 } from "@heroicons/react/24/outline";
-import {
-  // Bars4Icon,
-  // GlobeAmericasIcon,
-  NewspaperIcon,
-  PhoneIcon,
-  // RectangleGroupIcon,
-  SquaresPlusIcon,
-  // SunIcon,
-  TagIcon,
-  UserGroupIcon,
-} from "@heroicons/react/24/solid";
 
-const navListMenuItems = [
-  // {
-  //   title: "Products",
-  //   description: "Find the perfect solution for your needs.",
-  //   icon: SquaresPlusIcon,
-  // },
-  // {
-  //   title: "About Us",
-  //   description: "Meet and learn about our dedication",
-  //   icon: UserGroupIcon,
-  // },
-  // {
-  //   title: "Contact",
-  //   description: "Find the perfect solution for your needs.",
-  //   icon: PhoneIcon,
-  // },
-  // {
-  //   title: "News",
-  //   description: "Read insightful articles, tips, and expert opinions.",
-  //   icon: NewspaperIcon,
-  // },
-  // {
-  //   title: "Special Offers",
-  //   description: "Explore limited-time deals and bundles",
-  //   icon: TagIcon,
-  // },
-];
+import AuthModal from "../../Auth/AuthModal";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser, logout } from "../../../State/Auth/Action";
 
-// function NavListMenu() {
-//   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-//   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false);
-//   const renderItems = navListMenuItems.map(
-//     ({ icon, title, description }, key) => (
-//       <Link to="/" key={key}>
-//         <MenuItem className="flex items-center gap-3 rounded-lg">
-//           <div className="flex items-center justify-center rounded-lg !bg-blue-gray-50 p-2 ">
-//             {" "}
-//             {React.createElement(icon, {
-//               strokeWidth: 2,
-//               className: "h-6 text-gray-900 w-6",
-//             })}
-//           </div>
-//           <div>
-//             <Typography
-//               variant="h6"
-//               color="blue-gray"
-//               className="flex items-center text-sm font-bold"
-//             >
-//               {title}
-//             </Typography>
-//             <Typography
-//               variant="paragraph"
-//               className="text-xs !font-medium text-blue-gray-500"
-//             >
-//               {description}
-//             </Typography>
-//           </div>
-//         </MenuItem>
-//       </Link>
-//     ),
-//   );
-
-//   return (
-//     <>
-//       {/* <Menu
-//         open={isMenuOpen}
-//         handler={setIsMenuOpen}
-//         offset={{ mainAxis: 20 }}
-//         placement="bottom"
-//         allowHover={true}
-//       >
-//         <MenuHandler>
-//           <Typography as="div" variant="small" className="font-medium">
-//             <ListItem
-//               className="flex items-center gap-2 py-2 pr-4 font-medium text-gray-900"
-//               selected={isMenuOpen || isMobileMenuOpen}
-//               onClick={() => setIsMobileMenuOpen((cur) => !cur)}
-//             >
-//               Blog
-//               <ChevronDownIcon
-//                 strokeWidth={2.5}
-//                 className={`hidden h-3 w-3 transition-transform lg:block ${isMenuOpen ? "rotate-180" : ""
-//                   }`}
-//               />
-//               <ChevronDownIcon
-//                 strokeWidth={2.5}
-//                 className={`block h-3 w-3 transition-transform lg:hidden ${isMobileMenuOpen ? "rotate-180" : ""
-//                   }`}
-//               />
-//             </ListItem>
-//           </Typography>
-//         </MenuHandler>
-//         <MenuList className="hidden max-w-screen-xl rounded-xl lg:block">
-//           <ul className="grid grid-cols-3 gap-y-2 outline-none outline-0">
-//             {renderItems}
-//           </ul>
-//         </MenuList>
-//       </Menu> */}
-//       <div className="block lg:hidden">
-//         <Collapse open={isMobileMenuOpen}>{renderItems}</Collapse>
-//       </div>
-//     </>
-//   );
-// }
+function className(...classes) {
+  return classes.filter(Boolean).join(" ");
+}
 
 function NavList() {
   return (
@@ -149,10 +36,9 @@ function NavList() {
         className="font-medium"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
-          Collections
+          Our Products
         </ListItem>
       </Typography>
-      {/* <NavListMenu /> */}
       <Typography
         as={Link}
         to="/"
@@ -178,13 +64,65 @@ function NavList() {
 }
 
 export default function Head() {
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const openUserMenu = Boolean(anchorEl);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const jwt = localStorage.getItem("jwt");
+  const { jwt: authJwt, user: authUser } = useSelector((state) => state.auth);
 
-  React.useEffect(() => {
-    window.addEventListener(
-      "resize",
-      () => window.innerWidth >= 960 && setOpenNav(false)
-    );
+  const handleUserClick = (event) => {
+    console.log("User icon clicked");
+    setAnchorEl(event.currentTarget);
+  };
+  const handleCloseUserMenu = (event) => {
+    console.log("Menu closed");
+    setAnchorEl(null);
+  };
+
+  const handleOpen = () => {
+    setOpenAuthModal(true);
+  };
+  const handleClose = () => {
+    setOpenAuthModal(false);
+  };
+
+  useEffect(() => {
+    if (jwt) {
+      dispatch(getUser(jwt)).catch((error) => {
+        // Handle error here
+        console.error("Error getting user:", error);
+      });
+    }
+  }, [jwt, dispatch]);
+
+  useEffect(() => {
+    if (authUser) {
+      handleClose();
+    }
+    if (location.pathname === "/login" || location.pathname === "/register") {
+      navigate(-1);
+    }
+  }, [authUser, location.pathname, navigate]);
+
+  const handleLogout = () => {
+    dispatch(logout());
+    handleCloseUserMenu();
+  };
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 960) {
+        setOpenNav(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -199,15 +137,13 @@ export default function Head() {
           <img
             src="https://res.cloudinary.com/du5p1rnil/image/upload/v1713256699/empressa/ul5agvxpmsozwrahu5z0.png"
             alt="Empressa"
-            className="h-[100px] w-[100px] mr-10 "
+            className="h-[100px] w-[100px] m-auto"
           />
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
-
-        {/* search code here  */}
-        <div className="hidden gap-2 lg:flex items-center">
+        <div className="hidden gap-2 lg:flex items-center justify-between">
           <div className="relative">
             <form action="" className="mx-auto w-max">
               <input
@@ -222,14 +158,31 @@ export default function Head() {
               />
             </form>
           </div>
-          <UserCircleIcon className="h-7 w-7 mt-1" />
+          <div>
+          { authUser ? (
+            <div>
+            <UserCircleIcon
+              className="h-7 w-7 mt-1 cursor-pointer"
+              onClick={handleUserClick}
+            />
+            <Menu
+              id="basic-menu"
+              anchorEl={anchorEl}
+              open={openUserMenu}
+              onClose={handleCloseUserMenu}
+              MenuListProps={{ "aria-labelledby": "user-circle",}}>
+              <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
+              <MenuItem>My Orders</MenuItem>
+              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+            </Menu>
+          </div>
+          ) : (
+            <UserCircleIcon className="h-7 w-7 mt-1 cursor-pointer" onClick={handleOpen}/>
+          )}
+          </div>
+          
+
           <ShoppingBagIcon className="h-7 w-7" />
-          <Button variant="text" size="sm" color="blue-gray">
-            Log In
-          </Button>
-          <Button variant="gradient" size="sm">
-            Sign In
-          </Button>
         </div>
         <IconButton
           variant="text"
@@ -241,7 +194,7 @@ export default function Head() {
           {openNav ? (
             <XMarkIcon className="absolute inset-0 m-auto h-6 w-6" />
           ) : (
-            <Bars3Icon className="absolute inset-0  m-auto h-6 w-6" />
+            <Bars3Icon className="absolute inset-0 m-auto h-6 w-6" />
           )}
         </IconButton>
       </div>
@@ -256,6 +209,8 @@ export default function Head() {
           </Button>
         </div>
       </Collapse>
+
+      <AuthModal open={openAuthModal} onClose={handleClose} />
     </Navbar>
   );
 }

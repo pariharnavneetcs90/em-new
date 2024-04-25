@@ -12,8 +12,6 @@ import VideoSection from '../../components/VideoSection/VideoSection'
 export const HomePage = () => {
     return (
         <div>
-
-
             <VideoSection />
             <MainCarousel />
 

@@ -14,36 +14,21 @@ async function createProduct(reqData) {
     topLevel = await topLavelCategory.save();
   }
 
-  let secondLevel = await Category.findOne({
-    name: reqData.secondLavelCategory,
-    parentCategory: topLevel._id,
-  });
+  // let secondLevel = await Category.findOne({
+  //   name: reqData.secondLavelCategory,
+  //   parentCategory: topLevel._id,
+  // });
 
-  if (!secondLevel) {
-    const secondLavelCategory = new Category({
-      name: reqData.secondLavelCategory,
-      parentCategory: topLevel._id,
-      level: 2,
-    });
+  // if (!secondLevel) {
+  //   const secondLavelCategory = new Category({
+  //     name: reqData.secondLavelCategory,
+  //     parentCategory: topLevel._id,
+  //     level: 2,
+  //   });
 
-    secondLevel = await secondLavelCategory.save();
-  }
-
-  let thirdLevel = await Category.findOne({
-    name: reqData.thirdLavelCategory,
-    parentCategory: secondLevel._id,
-  });
-
-  if (!thirdLevel) {
-    const thirdLavelCategory = new Category({
-      name: reqData.thirdLavelCategory,
-      parentCategory: secondLevel._id,
-      level: 3,
-    });
-
-    thirdLevel = await thirdLavelCategory.save();
-  }
-
+  //   secondLevel = await secondLavelCategory.save();
+  // }
+  
   const product = new Product({
     title: reqData.title,
     color: reqData.color,
@@ -162,7 +147,6 @@ async function getAllProducts(reqQuery) {
   const products = await query.exec();
 
   const totalPages = Math.ceil(totalProducts / pageSize);
-
 
   return { content: products, currentPage: pageNumber, totalPages: totalPages };
 }
