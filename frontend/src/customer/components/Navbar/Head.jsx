@@ -159,30 +159,46 @@ export default function Head() {
             </form>
           </div>
           <div>
-          { authUser ? (
-            <div>
-            <UserCircleIcon
-              className="h-7 w-7 mt-1 cursor-pointer"
-              onClick={handleUserClick}
-            />
-            <Menu
-              id="basic-menu"
-              anchorEl={anchorEl}
-              open={openUserMenu}
-              onClose={handleCloseUserMenu}
-              MenuListProps={{ "aria-labelledby": "user-circle",}}>
-              <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
-              <MenuItem>My Orders</MenuItem>
-              <MenuItem onClick={handleLogout}>Logout</MenuItem>
-            </Menu>
+            {authUser ? (
+              <div>
+                <UserCircleIcon
+                  className="h-7 w-7 mt-1 cursor-pointer"
+                  onClick={handleUserClick}
+                />
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={openUserMenu}
+                  onClose={handleCloseUserMenu}
+                  MenuListProps={{ "aria-labelledby": "user-circle" }}
+                >
+                  <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
+                  <MenuItem>My Orders</MenuItem>
+                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                </Menu>
+              </div>
+            ) : (
+              <UserCircleIcon
+                className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
+                onClick={handleOpen}
+              />
+            )}
           </div>
-          ) : (
-            <UserCircleIcon className="h-7 w-7 mt-1 cursor-pointer" onClick={handleOpen}/>
-          )}
-          </div>
-          
 
-          <ShoppingBagIcon className="h-7 w-7" />
+          <div className="ml-4 flow-root lg:ml-6">
+  <Link to="/cart"
+    className="group -m-2 flex items-center p-2"
+  >
+    <ShoppingBagIcon
+      className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
+      aria-hidden="true"
+    />
+    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+    </span>
+    <span className="sr-only">items in cart, view bag</span>
+  </Link>
+</div>
+
         </div>
         <IconButton
           variant="text"
