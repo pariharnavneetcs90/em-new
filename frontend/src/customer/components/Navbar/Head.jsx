@@ -171,7 +171,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">About</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4">About Us</ListItem>
       </Typography>
     </List>
   );
@@ -212,7 +212,7 @@ export default function Head() {
             <form action="" className="mx-auto w-max">
               <input
                 type="search"
-                placeholder="Search"
+                placeholder=" Search"
                 className="peer cursor-pointer relative h-8 w-8 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4"
               />
               <img
@@ -224,12 +224,12 @@ export default function Head() {
           </div>
           <UserCircleIcon className="h-7 w-7 mt-1" />
           <ShoppingBagIcon className="h-7 w-7" />
-          <Button variant="text" size="sm" color="blue-gray">
+          {/* <Button variant="text" size="sm" color="blue-gray">
             Log In
           </Button>
           <Button variant="gradient" size="sm">
             Sign In
-          </Button>
+          </Button> */}
         </div>
         <IconButton
           variant="text"

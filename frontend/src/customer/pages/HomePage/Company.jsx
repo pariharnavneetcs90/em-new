@@ -3,8 +3,8 @@ import React from 'react'
 const Company = () => {
     return (
         <>
-            <div className="flex flex-row  justify-center items-center">
-                <img className='object-cover object-top w-[500px] h-[500px]' src="images/10.png" alt='asd' />
+            <div className="flex flex-row  justify-center items-center mt-[300px]">
+                <img className='object-cover object-top w-[500px] h-[500px]' src="images/16.png" alt='asd' />
 
             </div>
             <div className="container ml-[100px]">
