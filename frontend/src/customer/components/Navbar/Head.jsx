@@ -56,7 +56,7 @@ function NavList() {
         color="blue-gray"
         className="font-medium text-base"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">About</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4">About Us</ListItem>
       </Typography>
     </List>
   );
