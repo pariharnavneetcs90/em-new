@@ -158,16 +158,7 @@ export default function Head() {
               />
             </form>
           </div>
-<<<<<<< HEAD
-          <UserCircleIcon className="h-7 w-7 mt-1" />
-          <ShoppingBagIcon className="h-7 w-7" />
-          {/* <Button variant="text" size="sm" color="blue-gray">
-            Log In
-          </Button>
-          <Button variant="gradient" size="sm">
-            Sign In
-          </Button> */}
-=======
+
           <div>
             {authUser ? (
               <div>
@@ -196,20 +187,19 @@ export default function Head() {
           </div>
 
           <div className="ml-4 flow-root lg:ml-6">
-  <Link to="/cart"
-    className="group -m-2 flex items-center p-2"
-  >
-    <ShoppingBagIcon
-      className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
-      aria-hidden="true"
-    />
-    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-    </span>
-    <span className="sr-only">items in cart, view bag</span>
-  </Link>
-</div>
+            <Link to="/cart"
+              className="group -m-2 flex items-center p-2"
+            >
+              <ShoppingBagIcon
+                className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
+                aria-hidden="true"
+              />
+              <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+              </span>
+              <span className="sr-only">items in cart, view bag</span>
+            </Link>
+          </div>
 
->>>>>>> 910000bfedeb59aa5609ee237cc47d63f30233f1
         </div>
         <IconButton
           variant="text"

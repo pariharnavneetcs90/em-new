@@ -28,7 +28,7 @@ const DelevryAdressForm = () => {
         console.log("address", address)
         const orderData = { address, navigate }
         dispatch(createOrder(orderData))
-        // navigate('/checkout?step=3')
+        navigate('/checkout?step=3')
     }
 
     return (
