@@ -1,0 +1,1 @@
+export const MOBILE = '+91-7428074562'

@@ -3,7 +3,6 @@ const jwtProvider = require("../config/jwtProvider.js")
 const bcrypt = require("bcrypt")
 const cartService = require("../services/cart.service.js")
 
-
 const register = async (req, res) => {
 
     try {
