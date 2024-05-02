@@ -7,7 +7,7 @@ app.use(express.json())
 app.use(cors())
 
 app.get("/", (req, res) => {
-    return res.status(200).send({ message: "welcome to ecommerce dda api - node" })
+    return res.status(200).send({ message: "welcome to ecommerce api - node", status: true })
 })
 
 const authRouter = require("./routes/auth.routes.js")
@@ -44,4 +44,4 @@ app.use("/api/ratings", ratingRouter);
 const adminOrderRoutes = require("./routes/adminOrder.routes.js");
 app.use("/api/admin/orders", adminOrderRoutes);
 
-module.exports = { app };2
+module.exports = { app };

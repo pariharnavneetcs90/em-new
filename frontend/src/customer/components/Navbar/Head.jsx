@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Menu, MenuItem } from "@mui/material";
 import {
-  Navbar,
   Collapse,
   Typography,
   Button,
@@ -33,7 +32,7 @@ function NavList() {
         to="/products"
         variant="small"
         color="blue-gray"
-        className="font-medium"
+        className="font-medium text-base"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Our Products
@@ -44,7 +43,7 @@ function NavList() {
         to="/"
         variant="small"
         color="blue-gray"
-        className="font-medium"
+        className="font-medium text-base"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">
           Contact
@@ -55,7 +54,7 @@ function NavList() {
         to="/about"
         variant="small"
         color="blue-gray"
-        className="font-medium"
+        className="font-medium text-base"
       >
         <ListItem className="flex items-center gap-2 py-2 pr-4">About</ListItem>
       </Typography>
@@ -78,7 +77,7 @@ export default function Head() {
     console.log("User icon clicked");
     setAnchorEl(event.currentTarget);
   };
-  const handleCloseUserMenu = (event) => {
+  const handleCloseUserMenu = () => {
     console.log("Menu closed");
     setAnchorEl(null);
   };
@@ -88,6 +87,11 @@ export default function Head() {
   };
   const handleClose = () => {
     setOpenAuthModal(false);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    handleCloseUserMenu();
   };
 
   useEffect(() => {
@@ -108,98 +112,82 @@ export default function Head() {
     }
   }, [authUser, location.pathname, navigate]);
 
-  const handleLogout = () => {
-    dispatch(logout());
-    handleCloseUserMenu();
-  };
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 960) {
-        setOpenNav(false);
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
   return (
-    <Navbar className="mx-auto bg-white">
+    <div className="nav-container mx-auto bg-white">
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as={Link}
           to="/"
-          variant="h6"
-          className="mr-4 cursor-pointer py-1.5 lg:ml-2"
+          className="mr-4 cursor-pointer py-1.5 lg:ml-2 align-items-center"
+          style={{minWidth: '100px'}}
         >
           <img
             src="https://res.cloudinary.com/du5p1rnil/image/upload/v1713256699/empressa/ul5agvxpmsozwrahu5z0.png"
             alt="Empressa"
-            className="h-[100px] w-[100px] m-auto"
+            className="h-20 w-20 lg-h-auto lg-w-auto m-auto mt-5"
           />
         </Typography>
         <div className="hidden lg:block">
           <NavList />
         </div>
-        <div className="hidden gap-2 lg:flex items-center justify-between">
-          <div className="relative">
-            <form action="" className="mx-auto w-max">
-              <input
-                type="search"
-                placeholder="Search"
-                className="peer cursor-pointer relative h-8 w-8 rounded-full border bg-transparent pl-12 outline-none focus:w-full focus:cursor-text focus:border-lime-300 focus:pl-16 focus:pr-4"
-              />
-              <img
-                src="https://res.cloudinary.com/du5p1rnil/image/upload/v1713751837/empressa/searchLogo.png"
-                alt="Search Icon"
-                className="absolute inset-y-0 left-0 my-auto ml-3 h-4 w-4"
-              />
-            </form>
-          </div>
-          <div>
-            {authUser ? (
-              <div>
-                <UserCircleIcon
-                  className="h-7 w-7 mt-1 cursor-pointer"
-                  onClick={handleUserClick}
-                />
-                <Menu
-                  id="basic-menu"
-                  anchorEl={anchorEl}
-                  open={openUserMenu}
-                  onClose={handleCloseUserMenu}
-                  MenuListProps={{ "aria-labelledby": "user-circle" }}
-                >
-                  <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
-                  <MenuItem>My Orders</MenuItem>
-                  <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                </Menu>
-              </div>
-            ) : (
-              <UserCircleIcon
-                className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
-                onClick={handleOpen}
-              />
-            )}
-          </div>
+        <div className="flex items-center justify-center">
+    <form className="mx-auto w-max">
+    <div className="relative">
+    <img
+        src="https://res.cloudinary.com/du5p1rnil/image/upload/v1713751837/empressa/searchLogo.png"
+        alt="Search Icon"
+        className="absolute h-5 w-5 top-2 left-3"
+      />
+      <input
+        type="search"
+        placeholder="Search"
+        className="h-9 w-60 rounded-full pl-10"
+      />
+      </div>
+    </form>
 
-          <div className="ml-4 flow-root lg:ml-6">
-  <Link to="/cart"
-    className="group -m-2 flex items-center p-2"
-  >
-    <ShoppingBagIcon
-      className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
-      aria-hidden="true"
-    />
-    <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
-    </span>
-    <span className="sr-only">items in cart, view bag</span>
-  </Link>
+
+  <div className="ml-auto">
+    {authUser ? (
+      <div>
+        <UserCircleIcon
+          className="h-7 w-7 mt-1 cursor-pointer"
+          onClick={handleUserClick}
+        />
+        <Menu
+          id="basic-menu"
+          anchorEl={anchorEl}
+          open={openUserMenu}
+          onClose={handleCloseUserMenu}
+          MenuListProps={{ "aria-labelledby": "user-circle" }}
+        >
+          <MenuItem onClick={handleCloseUserMenu}>Profile</MenuItem>
+          <MenuItem>My Orders</MenuItem>
+          <MenuItem onClick={handleLogout}>Logout</MenuItem>
+        </Menu>
+      </div>
+    ) : (
+      <UserCircleIcon
+        className="h-7 w-7 mt-1 cursor-pointer active:scale-50 ml-2"
+        onClick={handleOpen}
+      />
+    )}
+  </div>
+  <div className="m-auto mb-1">
+    <Link to="/cart" className="group flex items-center p-2">
+      <ShoppingBagIcon
+        className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
+        aria-hidden="true"
+      />
+      <span className="ml-2 text-sm font-medium text-gray-700 group-hover:text-gray-800">
+        {/* Display cart item count here */}
+      </span>
+      <span className="sr-only">items in cart, view bag</span>
+    </Link>
+  </div>
 </div>
 
-        </div>
+
         <IconButton
           variant="text"
           color="blue-gray"
@@ -213,20 +201,21 @@ export default function Head() {
             <Bars3Icon className="absolute inset-0 m-auto h-6 w-6" />
           )}
         </IconButton>
+
       </div>
       <Collapse open={openNav}>
         <NavList />
-        <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
+        {/* <div className="flex w-full flex-nowrap items-center gap-2 lg:hidden">
           <Button variant="outlined" size="sm" color="blue-gray" fullWidth>
             Log In
           </Button>
           <Button variant="gradient" size="sm" fullWidth>
             Sign In
           </Button>
-        </div>
+        </div> */}
       </Collapse>
 
       <AuthModal open={openAuthModal} onClose={handleClose} />
-    </Navbar>
+    </div>
   );
 }

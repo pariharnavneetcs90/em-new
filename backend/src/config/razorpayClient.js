@@ -1,12 +1,12 @@
-const Razorpay = require('razorpay');
+require(dotenv).config();
+const Razorpay = require("razorpay");
 
-apiKey="rzp_test_kTsRSaDC8hwztX"
-apiSecret="LieoD1s9mxMIv569PcgRDMcU"
+apiKey = process.env.Razorpay_API_KEY;
+apiSecret = process.env.Razorpay_API_SECRET;
 
 const razorpay = new Razorpay({
-    key_id: apiKey,
-    key_secret: apiSecret,
-  });
+  key_id: apiKey,
+  key_secret: apiSecret,
+});
 
-
-  module.exports=razorpay;
+module.exports = razorpay;

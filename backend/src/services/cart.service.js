@@ -6,9 +6,15 @@ const User = require("../models/user.model.js");
 
 // Create a new cart for a user
 async function createCart(user) {
+  try {
   const cart = new Cart({ user });
   const createdCart = await cart.save();
   return createdCart;
+}
+catch(error)
+{
+  throw new Error(error.message);
+}
 }
 
 // Find a user's cart and update cart details
