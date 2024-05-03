@@ -1,19 +1,22 @@
-import React from 'react'
-//import vedioBg from '../../../../public/images/vedioBg.mp4'
+import React from 'react';
+
 const VideoSection = () => {
     return (
-        <div className='main relative mt-[60px] mb-[50px] '>
-            <div className="overlay"></div>
-            <div className='flex justify-center items-center h-screen pt-20 pb-20 mb-20 '>
-                <video className='w-full h-auto ' src="images/vedioBg.mp4" autoPlay loop muted />
-            </div>
+        <div className='video-section relative mt-16 mb-12'>
 
-            <div className='content absolute '>
-                {/* <h2 className='text-5xl'> Hello World</h2>
-                <p>to my site</p> */}
+            {/* Flex container for centering video */}
+            <div className='flex justify-center items-center h-screen'>
+                {/* Video element */}
+                <video className='w-full h-auto' src="images/vedioBg.mp4" autoPlay loop muted onError={handleError}>
+                    {/* Fallback content in case video fails to load */}
+                    <p>Sorry, the video cannot be played.</p>
+                </video>
             </div>
         </div>
-    )
+    );
+}
+const handleError = (e) => {
+    console.error('Error loading video:', e);
 }
 
-export default VideoSection
+export default VideoSection;

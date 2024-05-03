@@ -4,7 +4,7 @@ import { Menu, MenuItem } from "@mui/material";
 import {
   Collapse,
   Typography,
-  Button,
+  // Button,
   IconButton,
   List,
   ListItem,
@@ -19,10 +19,6 @@ import {
 import AuthModal from "../../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout } from "../../../State/Auth/Action";
-
-function className(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 function NavList() {
   return (
@@ -56,7 +52,9 @@ function NavList() {
         color="blue-gray"
         className="font-medium text-base"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">About Us</ListItem>
+        <ListItem className="flex items-center gap-2 py-2 pr-4">
+          About Us
+        </ListItem>
       </Typography>
     </List>
   );
@@ -74,11 +72,11 @@ export default function Head() {
   const { jwt: authJwt, user: authUser } = useSelector((state) => state.auth);
 
   const handleUserClick = (event) => {
-    console.log("User icon clicked");
+    // console.log("User icon clicked");
     setAnchorEl(event.currentTarget);
   };
   const handleCloseUserMenu = () => {
-    console.log("Menu closed");
+    // console.log("Menu closed");
     setAnchorEl(null);
   };
 
@@ -93,6 +91,8 @@ export default function Head() {
     dispatch(logout());
     handleCloseUserMenu();
   };
+
+  //handle product to be done
 
   useEffect(() => {
     if (jwt) {
@@ -114,20 +114,27 @@ export default function Head() {
 
   return (
     <div className="nav-container mx-auto bg-white">
+      <div className="bg-[#44496C] text-white py-4 text-center">
+  <p className="text-m font-medium mr-12">
+    Be BOLD  Be YOU  Be UNSTOPPABLE
+  </p>
+</div>
+
+
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as={Link}
           to="/"
           className="mr-4 cursor-pointer py-1.5 lg:ml-2 align-items-center"
-          style={{ minWidth: '100px' }}
+          style={{ minWidth: "100px" }}
         >
           <img
             src="https://res.cloudinary.com/du5p1rnil/image/upload/v1713256699/empressa/ul5agvxpmsozwrahu5z0.png"
             alt="Empressa"
-            className="h-20 w-20 lg-h-auto lg-w-auto m-auto mt-5"
+            className="h-20 w-20 lg-h-auto lg-w-auto m-auto"
           />
         </Typography>
-        <div className="hidden lg:block">
+        <div className="hidden lg:block lg:ml-40">
           <NavList />
         </div>
         <div className="flex items-center justify-center">
@@ -146,8 +153,7 @@ export default function Head() {
             </div>
           </form>
 
-
-          <div className="ml-auto">
+          <div className="ml-auto mb-1">
             {authUser ? (
               <div>
                 <UserCircleIcon
@@ -173,7 +179,7 @@ export default function Head() {
               />
             )}
           </div>
-          <div className="m-auto mb-1">
+          <div className="m-auto mb-2">
             <Link to="/cart" className="group flex items-center p-2">
               <ShoppingBagIcon
                 className="h-7 w-7 mt-1 cursor-pointer active:scale-50"
@@ -186,7 +192,6 @@ export default function Head() {
             </Link>
           </div>
         </div>
-
 
         <IconButton
           variant="text"
@@ -201,7 +206,6 @@ export default function Head() {
             <Bars3Icon className="absolute inset-0 m-auto h-6 w-6" />
           )}
         </IconButton>
-
       </div>
       <Collapse open={openNav}>
         <NavList />

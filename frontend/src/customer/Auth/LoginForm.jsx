@@ -22,14 +22,11 @@ const LoginForm = () => {
     const data = new FormData(event.currentTarget);
 
     const userData = {
-      // firstName: data.get("firstName"),
-      // lastName: data.get("lastName"),
       email: data.get("email"),
       password: data.get("password"),
     };
     dispatch(login(userData));
     console.log("user data", userData);
-    // dispatch(register(userData))
   };
   return (
     <div>
