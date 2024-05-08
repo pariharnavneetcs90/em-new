@@ -12,15 +12,26 @@ import CustomerRouters from './customer/Routers/CustomerRouters';
 import AdminRouters from './customer/Routers/AdminRouters';
 import { MOBILE } from './constant';
 import { FloatingWhatsApp } from 'react-floating-whatsapp';
+import Producttest from './customer/components/Product/Producttest';
+import MiddleMassage from './customer/components/MiddleMassage/MiddleMassage';
 
 
 
 
 function App() {
   return (
+    // <div>
+    //   <Producttest />
+    // </div>
+    // <div>
+    //   <MiddleMassage />
+    //   <Footer />
+    // </div>
+
+
     <div>
 
-<FloatingWhatsApp
+      <FloatingWhatsApp
         accountName="Empressa"
         buttonClassName="whatsappButton"
         avatar="https://res.cloudinary.com/du5p1rnil/image/upload/v1713256699/empressa/ul5agvxpmsozwrahu5z0.png"
@@ -28,7 +39,7 @@ function App() {
         statusMessage="Typically replies within 1 hour"
         chatMessage={`Hello there! 🤝 How can we help?`}
         darkMode={false}
-        buttonStyle={{position:"fixed",bottom:"60px"}}
+        buttonStyle={{ position: "fixed", bottom: "60px" }}
         allowEsc
         allowClickAway
         notification

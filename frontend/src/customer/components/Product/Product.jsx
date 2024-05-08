@@ -3,12 +3,13 @@ import ProductCard from './ProductCard'
 import { useParams, useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { findProducts } from './../../../State/Product/Action';
+import { mens_kurta } from './../../../Data/mens_kurta';
 
 const Product = () => {
 
     const param = useParams();
     const dispatch = useDispatch();
-    const { products } = useSelector(state=> state);
+    const { products } = useSelector(state => state);
     const location = useLocation();
 
     const decodedQueryString = decodeURIComponent(location.search);
@@ -47,6 +48,7 @@ const Product = () => {
         stock,]);
 
     return (
+
         <div className='flex flex-wrap justify-center bg-white py-5'>
             {products.products && products.products?.content.map((item) => <ProductCard key={item.id} product={item} />)}
         </div>

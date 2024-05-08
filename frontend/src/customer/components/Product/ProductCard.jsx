@@ -1,7 +1,7 @@
 import React from 'react'
 import "./ProductCard.css"
 import { useNavigate } from 'react-router-dom'
-
+//niche jo product hai vo props hai
 const ProductCard = ({ product }) => {
     const navigate = useNavigate();
     return (

@@ -1,16 +1,16 @@
 import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import InstagramIcon from '@mui/icons-material/Instagram';
+
+
 const Company = () => {
     return (
         <>
 
-            <FontAwesomeIcon icon="fa-solid fa-envelope" />
-            <div className="flex flex-row  justify-center items-center mt-[300px]">
+
+            <div className="flex flex-row  justify-center items-center mt-[200px]">
                 <img className='object-cover object-top w-[500px] h-[500px]' src="images/16.png" alt='asd' />
 
             </div>
-            <div className="container ml-[100px]">
+            <div className="container ml-[100px] mt-[-200px]">
                 <p className=" min-h-screen flex flex-row  justify-center items-center">
                     "Brown is beautiful" is a motto you often hear me say. My passion to spread awareness on the beauty of all skin colors of brown comes from my experience of feeling like I would only look beautiful if my skin was lighter. Colorism is a prominent topic not only in the South Asian community but many other communities as well. Not one color of brown skin is more beautiful than the other.Empowering women and each other is something I find very important. We all deserve our own success and happiness. Instead of comparing ourselves with each other, we must find peace individually and celebrate each other’s successes, big or small. We all come in different shapes, sizes, skin color, hair type, etc. Women are amazing and it is important to honor and showcase that!
 

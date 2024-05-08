@@ -1,9 +1,9 @@
 import React from "react";
 
 const MiddleMassage = () => {
-    return (
-        <>
-            {/* <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br from-lime-300 to-green-500 p-6 sm:py-12">
+  return (
+    <>
+      {/* <div class="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gradient-to-br from-lime-300 to-green-500 p-6 sm:py-12">
                 <div class="relative rounded-2xl bg-white px-6 pt-10 pb-8 shadow-xl ring-1 ring-gray-900/5 sm:mx-auto sm:max-w-lg sm:px-10">
                     <div class="mx-auto max-w-md">
 
@@ -21,9 +21,9 @@ const MiddleMassage = () => {
                 </div>
             </div> */}
 
-            {/* 1 */}
-            <div className="flex flex-row mt-[150px] ">
-                <div className="basis-1/6"></div>
+      {/* 1 */}
+      {/* <div className="flex flex-row mt-[150px] ">
+        <div className="basis-1/6"></div>
 
         <div className="basis-1/2">
           <img
@@ -48,10 +48,10 @@ const MiddleMassage = () => {
         </div>
 
         <div className="basis-1/6"></div>
-      </div>
+      </div> */}
 
       {/* 2 */}
-      <div className="flex flex-row mt-[200px] ">
+      {/* <div className="flex flex-row mt-[200px] ">
         <div className="basis-1/6"></div>
 
         <div className="basis-1/2 ">
@@ -78,10 +78,10 @@ const MiddleMassage = () => {
         </div>
 
         <div className="basis-1/6"></div>
-      </div>
+      </div> */}
 
       {/* 3 */}
-      <div className="flex flex-row mt-[200px] ">
+      {/* <div className="flex flex-row mt-[200px] ">
         <div className="basis-1/6"></div>
 
         <div className="basis-1/2">
@@ -113,7 +113,88 @@ const MiddleMassage = () => {
         </div>
 
         <div className="basis-1/6"></div>
+      </div> */}
+
+      {/* 1 */}
+      <div className="container mx-auto mt-[200px]">
+        <div className="m-4 grid gap-4 sm:grid-cols-2 ">
+          <div className="min-h-[100px] rounded-lg ">
+            <img
+              className="object-cover object-top w-full h-full"
+              src="images/12.png"
+              alt="asd"
+            />
+          </div>
+          <div className="min-h-[100px] rounded-lg ">
+            <h1 className="text-6xl text-[#913832] font-def ">
+              SMASH THE PATRIARCHY
+            </h1>
+            <p className="mt-[20px] text-xl font-def">
+              AND RAISE AWARENESS FOR GENDER DISPARITY, RACIAL INEQUALITY &
+              BIAS. HERE AT FEMINIST APPAREL, OUR INDEPENDENT FEMINIST ARTISTS
+              HAVE HAND CREATED, DRAWN & PAINTED CLOTHING THAT HIGHLIGHTS THESE
+              IMPORTANT ISSUES WHILE ALSO CELEBRATING DIVERSITY.
+
+            </p>
+          </div>
+        </div>
       </div>
+
+      {/* 2 */}
+      <div className="container mx-auto mt-[200px]">
+        <div className="m-4 grid gap-4 sm:grid-cols-2 ">
+          <div className="min-h-[100px] rounded-lg ">
+            <h1 className="text-6xl text-[#708090] font-def">
+              BURN THE PATRIARCHY, NOT THE PLANET
+            </h1>
+            <p className="mt-[20px] text-xl font-def">
+              WE PRACTISE SLOW, HANDMADE FASHION. THIS IS THE ESSENCE OF
+              EVERYTHING AT DAUGHTERS OF INDIA. WE RELEASE ONE PRODUCT AT A TIME
+              WHEN IT IS COMPLETE. THIS ENSURES THE ARTISANS ARE FREE TO MANAGE
+              THEIR OWN HOURS WITHOUT PRODUCTION DEADLINES, PROVIDING
+              FLEXIBILITY TO ENJOY LIFE AT A SLOWER PACE.
+            </p>
+          </div>
+          <div className="min-h-[100px] rounded-lg ">
+            <img
+              className="object-cover object-top w-full h-full"
+              src="images/13.png"
+              alt="asd"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* 3 */}
+      <div className="container mx-auto mt-[200px]">
+        <div className="m-4 grid gap-4 sm:grid-cols-2 ">
+          <div className="min-h-[100px] rounded-lg ">
+            <img
+              className="object-cover object-top w-full h-full"
+              src="images/15.png"
+              alt="asd"
+            />
+          </div>
+          <div className="min-h-[100px] rounded-lg ">
+            <h1 className="text-6xl text-[#44496c] font-def">
+              WOMEN EMPOWERMENT
+            </h1>
+            <p className="mt-[20px] text-xl font-def">
+              EMPOWERING WOMEN AND EACH OTHER IS SOMETHING I FIND VERY
+              IMPORTANT. WE ALL DESERVE OUR OWN SUCCESS AND HAPPINESS. INSTEAD
+              OF COMPARING OURSELVES WITH EACH OTHER, WE MUST FIND PEACE
+              INDIVIDUALLY AND CELEBRATE EACH OTHER’S SUCCESSES, BIG OR SMALL.
+              WE ALL COME IN DIFFERENT SHAPES, SIZES, SKIN COLOR, HAIR TYPE,
+              ETC. WOMEN ARE AMAZING AND IT IS IMPORTANT TO HONOR AND SHOWCASE
+              THAT!
+              <p className="mt-[20px] text-xl font-mono">
+                EMPOWER WOMEN AND WOMEN EMPOWERMENT
+              </p>
+            </p>
+          </div>
+        </div>
+      </div>
+
     </>
   );
 };
