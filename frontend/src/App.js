@@ -15,9 +15,6 @@ import { FloatingWhatsApp } from 'react-floating-whatsapp';
 import Producttest from './customer/components/Product/Producttest';
 import MiddleMassage from './customer/components/MiddleMassage/MiddleMassage';
 
-
-
-
 function App() {
   return (
     // <div>

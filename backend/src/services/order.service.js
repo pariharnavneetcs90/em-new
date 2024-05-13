@@ -12,10 +12,10 @@ async function createOrder(user, shippAddress) {
     address = new Address(shippAddress);
     address.user = user;
     await address.save();
-    console.log("adress", address)
+    // console.log("adress", address)
     user.addresses.push(address);
     await user.save();
-    console.log("user", user)
+    // console.log("user", user)
   }
 
   const cart = await cartService.findUserCart(user._id);
@@ -30,7 +30,7 @@ async function createOrder(user, shippAddress) {
       userId: item.userId,
       discountedPrice: item.discountedPrice,
     });
-    console.log("orderItem", orderItem)
+    // console.log("orderItem", orderItem)
     const createdOrderItem = await orderItem.save();
     orderItems.push(createdOrderItem);
   }
@@ -48,7 +48,7 @@ async function createOrder(user, shippAddress) {
     "paymentDetails.status": "PENDING", // Assuming PaymentStatus is nested under 'paymentDetails'
     createdAt: new Date(),
   });
-  console.log("createdOrder", createdOrder)
+  // console.log("createdOrder", createdOrder)
   const savedOrder = await createdOrder.save();
 
   // for (const item of orderItems) {

@@ -42,7 +42,7 @@ const HomeSectionCarosel = () => {
     // const syncActiveIndex = ({ item }) => setActiveIndex(item)
 
     // niche wala (1,1,1,,1 batat hai kitne products hai jase 1,1,1,1, matlab 4 dispay kare ga)
-    const items = mens_kurta.slice(0, 10).map((item) => <HomeSectionCard product={item} />);
+    // const items = mens_kurta.slice(0, 10).map((item) => <HomeSectionCard product={item} />);
 
     return (
         <>
@@ -52,7 +52,7 @@ const HomeSectionCarosel = () => {
                 <div className='relative p-5' >
                     {/* ye jo niche hai vo alice carosel hai  install kar ke use karte hai (https://maxmarinich.github.io/react-alice-carousel/#basic)*/}
                     <AliceCarousel
-                        items={items}
+                        // items={items}
                         mouseTracking
                         // disableButtonsControls
                         responsive={responsive}

@@ -62,14 +62,17 @@ function NavList() {
 
 export default function Head() {
   const [openNav, setOpenNav] = useState(false);
+  const navigate = useNavigate();
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
-  const navigate = useNavigate();
+
   const dispatch = useDispatch();
   const location = useLocation();
   const jwt = localStorage.getItem("jwt");
-  const { jwt: authJwt, user: authUser } = useSelector((state) => state.auth);
+  const { auth } = useSelector((store) => store);
+    // const { auth} = useSelector((store) => store.auth )
+  // const { jwt: authJwt, user: authUser } = useSelector((state) => state.auth);
 
   const handleUserClick = (event) => {
     // console.log("User icon clicked");
@@ -94,33 +97,39 @@ export default function Head() {
 
   //handle product to be done
 
-  useEffect(() => {
-    if (jwt) {
-      dispatch(getUser(jwt)).catch((error) => {
-        // Handle error here
-        console.error("Error getting user:", error);
-      });
-    }
-  }, [jwt, dispatch]);
+  // useEffect(() => {
+  //   if (jwt) {
+  //     dispatch(getUser(jwt)).catch((error) => {
+  //       // Handle error here
+  //       console.error("Error getting user:", error);
+  //     });
+  //   }
+  // }, [jwt, dispatch]);
 
   useEffect(() => {
-    if (authUser) {
+    if (jwt) {
+      dispatch(getUser(jwt));
+    }
+  }, [jwt, auth.jwt]);
+
+  useEffect(() => {
+    // if (authUser) {
+    if (auth.user) {
       handleClose();
     }
     if (location.pathname === "/login" || location.pathname === "/register") {
       navigate(-1);
     }
-  }, [authUser, location.pathname, navigate]);
+  }, [auth.user]);
+  // }, [authUser, location.pathname, navigate]);
 
   return (
     <div className="nav-container mx-auto bg-white">
       <div className="bg-[#44496C] text-white py-4 text-center">
-  <p className="text-m font-medium mr-12">
-    Be BOLD  Be YOU  Be UNSTOPPABLE
-  </p>
-</div>
-
-
+        <p className="text-m font-medium mr-12">
+          Be BOLD Be YOU Be UNSTOPPABLE
+        </p>
+      </div>
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as={Link}
@@ -154,11 +163,15 @@ export default function Head() {
           </form>
 
           <div className="ml-auto mb-1">
-            {authUser ? (
+            {/* {authUser ? ( */}
+            {auth.user ? (
               <div>
                 <UserCircleIcon
                   className="h-7 w-7 mt-1 cursor-pointer"
                   onClick={handleUserClick}
+                  aria-controls={openNav ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={openNav ? "true" : undefined}
                 />
                 <Menu
                   id="basic-menu"
@@ -219,7 +232,7 @@ export default function Head() {
         </div> */}
       </Collapse>
 
-      <AuthModal open={openAuthModal} onClose={handleClose} />
+      <AuthModal open={openAuthModal} handleClose={handleClose} />
     </div>
   );
 }

@@ -50,7 +50,7 @@ async function isCartItemExist(cart, product, size, userId) {
 // Remove a cart item
 async function removeCartItem(userId, cartItemId) {
   // console.log(`userId - ${userId}, cartItemId - ${cartItemId}`);
-  console.log("cartItemId", cartItemId)
+  // console.log("cartItemId", cartItemId)
   const cartItem = await findCartItemById(cartItemId);
   console.log("cartItem", cartItem)
   const user = await userService.findUserById(cartItem.userId);

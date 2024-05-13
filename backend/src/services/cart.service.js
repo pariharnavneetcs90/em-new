@@ -50,7 +50,7 @@ async function addCartItem(userId, req) {
 
   const cart = await Cart.findOne({ user: userId });
   const product = await Product.findById(req.productId);
-  console.log("product", product);
+  // console.log("product", product);
   const isPresent = await CartItem.findOne({ cart: cart._id, product: product._id, userId });
 
 
@@ -65,7 +65,7 @@ async function addCartItem(userId, req) {
       discountedPrice: product.discountedPrice
     });
 
-    console.log("cartItem", cartItem);
+    // console.log("cartItem", cartItem);
 
     const createdCartItem = await cartItem.save();
     cart.cartItems.push(createdCartItem);
