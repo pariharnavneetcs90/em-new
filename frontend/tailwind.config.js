@@ -19,7 +19,8 @@ module.exports = withMT({
     extend: {},
     fontFamily: {
       abc: ["Special Elite", "system-ui"],
-      def: ["Noto Serif Display", "serif"]
+      def: ["Noto Serif Display", "serif"],
+      ijk: ["Cormorant Garamond", "serif"],
     },
   },
   plugins: [],
