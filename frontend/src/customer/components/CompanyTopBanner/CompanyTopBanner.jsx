@@ -1,8 +1,6 @@
 import React from 'react'
 
-
-
-const TopBanner = () => {
+const CompanyTopBanner = () => {
     return (
         <>
             <div >
@@ -10,7 +8,7 @@ const TopBanner = () => {
 
                     <img
                         // className="object-cover object-top w-full h-full"
-                        src="images/22.webp"
+                        src="images/51.webp"
                         alt="asd"
                     />
                 </h1>
@@ -20,7 +18,7 @@ const TopBanner = () => {
 
                     <img
                         // className="object-cover object-top w-full h-full"
-                        src="images/21.webp"
+                        src="images/50.webp"
                         alt="asd"
                     />
                 </h1>
@@ -28,8 +26,7 @@ const TopBanner = () => {
 
             </div>
         </>
-
     )
 }
 
-export default TopBanner
+export default CompanyTopBanner
