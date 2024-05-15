@@ -4,21 +4,25 @@ const mongoose = require('mongoose');
 const productSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: true,
+    // required: true,
   },
   description: {
     type: String,
-    required: true,
+    // required: true,
   },
   price: {
     type: Number,
-    required: true,
+    // required: true,
   },
   discountedPrice: {
     type: Number,
   },
   discountPersent: {
     type: Number,
+  },
+  quantity: {
+    type: Number,
+    // required: true,
   },
   brand: {
     type: String,
@@ -32,11 +36,6 @@ const productSchema = new mongoose.Schema({
   }], 
   imageUrl: {
     type: String,
-  },
-  category: 
-  {
-    type: String,
-
   },
   ratings: [
     {
@@ -53,10 +52,15 @@ const productSchema = new mongoose.Schema({
   numRatings: {
     type: Number,
     default: 0,
-  }
-},
-{
-  timestamps: true,
+  },
+  category: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'categories',
+  }, 
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Product = mongoose.model('products', productSchema);

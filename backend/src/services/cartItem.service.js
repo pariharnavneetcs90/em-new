@@ -1,5 +1,5 @@
 const CartItem = require("../models/cartItem.model.js");
-const userService = require("../services/user.service.js");
+const userService=require("../services/user.service.js");
 
 
 // Create a new cart item
@@ -18,16 +18,16 @@ async function updateCartItem(userId, cartItemId, cartItemData) {
   const item = await findCartItemById(cartItemId)
   // console.log("cartItemData ",item)
 
-  if (!item) {
-    throw new Error("cart item not found : ", cartItemId)
+  if(!item){
+    throw new Error("cart item not found : ",cartItemId)
   }
   const user = await userService.findUserById(item.userId);
 
-  if (!user) {
-    throw new Error("user not found : ", userId)
+  if(!user){
+    throw new Error("user not found : ",userId)
   }
 
-
+ 
 
   if (user.id === userId.toString()) {
     item.quantity = cartItemData.quantity;
@@ -50,9 +50,8 @@ async function isCartItemExist(cart, product, size, userId) {
 // Remove a cart item
 async function removeCartItem(userId, cartItemId) {
   // console.log(`userId - ${userId}, cartItemId - ${cartItemId}`);
-  // console.log("cartItemId", cartItemId)
+  
   const cartItem = await findCartItemById(cartItemId);
-  console.log("cartItem", cartItem)
   const user = await userService.findUserById(cartItem.userId);
   const reqUser = await userService.findUserById(userId);
 

@@ -14,35 +14,35 @@ async function createProduct(req) {
     topLevel = await topLavelCategory.save();
   }
 
-  // let secondLevel = await Category.findOne({
-  //   name: req.getSecondLavelCategory(),
-  //   parentCategory: topLevel.name,
-  // });
+  let secondLevel = await Category.findOne({
+    name: req.getSecondLavelCategory(),
+    parentCategory: topLevel.name,
+  });
 
-  // if (!secondLevel) {
-  //   const secondLavelCategory = new Category({
-  //     name: req.getSecondLavelCategory(),
-  //     parentCategory: topLevel.name,
-  //     level: 2,
-  //   });
+  if (!secondLevel) {
+    const secondLavelCategory = new Category({
+      name: req.getSecondLavelCategory(),
+      parentCategory: topLevel.name,
+      level: 2,
+    });
 
-  //   secondLevel = await secondLavelCategory.save();
-  // }
+    secondLevel = await secondLavelCategory.save();
+  }
 
-  // let thirdLevel = await Category.findOne({
-  //   name: req.getThirdLavelCategory(),
-  //   parentCategory: secondLevel.name,
-  // });
+  let thirdLevel = await Category.findOne({
+    name: req.getThirdLavelCategory(),
+    parentCategory: secondLevel.name,
+  });
 
-  // if (!thirdLevel) {
-  //   const thirdLavelCategory = new Category({
-  //     name: req.getThirdLavelCategory(),
-  //     parentCategory: secondLevel.name,
-  //     level: 3,
-  //   });
+  if (!thirdLevel) {
+    const thirdLavelCategory = new Category({
+      name: req.getThirdLavelCategory(),
+      parentCategory: secondLevel.name,
+      level: 3,
+    });
 
-  //   thirdLevel = await thirdLavelCategory.save();
-  // }
+    thirdLevel = await thirdLavelCategory.save();
+  }
 
   const product = new Product({
     title: req.getTitle(),
@@ -55,7 +55,7 @@ async function createProduct(req) {
     price: req.getPrice(),
     sizes: req.getSize(),
     quantity: req.getQuantity(),
-    category: topLevel._id,
+    category: thirdLevel._id,
     createdAt: new Date(),
   });
 
@@ -113,6 +113,8 @@ async function searchProduct(query) {
 }
 
 async function getAllProduct(category, colors, sizes, minPrice, maxPrice, minDiscount, sort, stock, pageNumber, pageSize) {
+  // Implement the filtering logic
+  // ...
 }
 
 module.exports = {

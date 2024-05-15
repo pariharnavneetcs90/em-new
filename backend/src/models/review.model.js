@@ -15,10 +15,11 @@ const reviewSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'users',
     required: true,
-  }
-}, 
-{
-  timestamps: true,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+  },
 });
 
 const Review = mongoose.model('reviews', reviewSchema);

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+
 const userSchema = new mongoose.Schema({
   firstName: {
     type: String,
@@ -48,12 +49,12 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "reviews",
     },
-  ]
-}, 
-{
-timestamps: true
-}
-);
+  ],
+  createdAt: {
+    type: Date,
+    default: Date.now(),
+  },
+});
 
 const User = mongoose.model("users", userSchema);
 

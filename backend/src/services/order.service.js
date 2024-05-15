@@ -12,10 +12,9 @@ async function createOrder(user, shippAddress) {
     address = new Address(shippAddress);
     address.user = user;
     await address.save();
-    // console.log("adress", address)
+
     user.addresses.push(address);
     await user.save();
-    // console.log("user", user)
   }
 
   const cart = await cartService.findUserCart(user._id);
@@ -30,7 +29,7 @@ async function createOrder(user, shippAddress) {
       userId: item.userId,
       discountedPrice: item.discountedPrice,
     });
-    // console.log("orderItem", orderItem)
+
     const createdOrderItem = await orderItem.save();
     orderItems.push(createdOrderItem);
   }
@@ -48,7 +47,7 @@ async function createOrder(user, shippAddress) {
     "paymentDetails.status": "PENDING", // Assuming PaymentStatus is nested under 'paymentDetails'
     createdAt: new Date(),
   });
-  // console.log("createdOrder", createdOrder)
+
   const savedOrder = await createdOrder.save();
 
   // for (const item of orderItems) {
@@ -93,9 +92,9 @@ async function cancelledOrder(orderId) {
 async function findOrderById(orderId) {
   const order = await Order.findById(orderId)
     .populate("user")
-    .populate({ path: "orderItems", populate: { path: "product" } })
+    .populate({path:"orderItems", populate:{path:"product"}})
     .populate("shippingAddress");
-
+  
   return order;
 }
 
@@ -127,12 +126,12 @@ async function getAllOrders() {
       path: "product",
     },
   })
-    .lean();;
+  .lean();;
 }
 
 async function deleteOrder(orderId) {
   const order = await findOrderById(orderId);
-  if (!order) throw new Error("order not found with id ", orderId)
+  if(!order)throw new Error("order not found with id ",orderId)
 
   await Order.findByIdAndDelete(orderId);
 }

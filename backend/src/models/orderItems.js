@@ -1,10 +1,11 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const orderItemSchema = new Schema({
+ 
   product: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "products",
+    ref: 'products',
     required: true,
   },
   size: {
@@ -24,17 +25,14 @@ const orderItemSchema = new Schema({
   },
   userId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "users",
+    ref: 'users',
     required: true,
   },
   deliveryDate: {
     type: Date,
   },
-},
-{
-  timestamps: true,
 });
 
-const OrderItem = mongoose.model("orderItems", orderItemSchema);
+const OrderItem = mongoose.model('orderItems', orderItemSchema);
 
 module.exports = OrderItem;

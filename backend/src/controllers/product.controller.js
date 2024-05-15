@@ -34,14 +34,14 @@ async function updateProduct(req, res) {
 }
 
 // Get all products
-async function getAllProducts(req, res) {
-  try {
-    const products = await productService.getAllProducts();
-    res.json(products);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-}
+// async function getAllProducts(req, res) {
+//   try {
+//     const products = await productService.getAllProducts();
+//     res.json(products);
+//   } catch (err) {
+//     res.status(500).json({ error: err.message });
+//   }
+// }
 
 // Find a product by ID
 async function findProductById(req, res) {
@@ -79,7 +79,7 @@ async function searchProduct(req, res) {
 // Get all products with filtering and pagination
 async function getAllProducts(req, res) {
   try {
-    console.log("got inside product")
+
     const products = await productService.getAllProducts(req.query);
 
     return res.status(200).send(products);
@@ -88,7 +88,7 @@ async function getAllProducts(req, res) {
   }
 }
 
-const createMultipleProduct = async (req, res) => {
+const createMultipleProduct= async (req, res) => {
   try {
     await productService.createMultipleProduct(req.body)
     res
