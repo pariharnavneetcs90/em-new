@@ -9,14 +9,14 @@ const JournalDetailPage = () => {
             <h1 className='font-ijk text-center text-4xl  text-black  mt-[10px] '>
                 Chai & Chats with @solmama__
             </h1>
-            <div className='container  mx-auto flex justify-center items-center mt-[100px]'>
+            <div className='  mx-auto flex justify-center items-center mt-[100px] max-w-[1000px]'>
                 <img className=' '
 
                     src="images/38.jpg"
                     alt="asd"
                 />
             </div>
-            <div className='container  mx-auto'>
+            <div className='   mx-auto max-w-[1000px]'>
                 <p className='font-ijk  text-base  text-gray-800  mt-[100px] '>
                     Through her own journey as a Mother, Laura has intuitively centred her life around supporting women through cyclical living, pregnancy, birth, motherhood and beyond.
                 </p>
