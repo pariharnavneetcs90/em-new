@@ -12,6 +12,10 @@ import Checkout from '../components/Checkout/Checkout'
 import JournalPage from '../pages/JournalPage'
 import JournalDetailPage from '../pages/JournalDetailPage'
 import CompanyPage from './../pages/HomePage/CompanyPage';
+import RefundPage from './../pages/RefundPage';
+import PrivacyPage from '../pages/PrivacyPage'
+import TermPage from '../pages/TermPage'
+import ContactUsPage from '../pages/ContactUsPage'
 
 const CustomerRouters = () => {
     return (
@@ -32,6 +36,14 @@ const CustomerRouters = () => {
                 <Route path='/about' element={<CompanyPage />}></Route>
                 <Route path='/journal' element={<JournalPage />}></Route>
                 <Route path='/journaldetail' element={<JournalDetailPage />}></Route>
+                <Route path='/refund' element={<RefundPage />}></Route>
+                <Route path='/privacy' element={<PrivacyPage />}></Route>
+                <Route path='/term' element={<TermPage />}></Route>
+                <Route path='/contact' element={<ContactUsPage />}></Route>
+
+
+
+
 
 
 
