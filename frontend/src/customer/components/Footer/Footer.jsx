@@ -85,9 +85,16 @@ function Footer() {
                     <li as={Link}>
                       <Link
                         className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
-                        to="/about"
+                        to="/contact"
                       >
                         Contact Us
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/journal">
+                        <p className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm">
+                          Journal
+                        </p>
                       </Link>
                     </li>
                     {/* <li>
@@ -137,14 +144,38 @@ function Footer() {
                         MIT License
                       </a>
                     </li> */}
-                    <li>
+                    {/* <li>
                       <a
                         class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
                         href="https://creative-tim.com/terms?ref=njs-profile"
                       >
                         Terms &amp; Conditions
                       </a>
+                    </li> */}
+                    <li>
+                      <Link to="/refund">
+                        <p className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm">
+                          Refund
+                        </p>
+                      </Link>
                     </li>
+                    <li>
+                      <Link to="/privacy">
+                        <p className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm">
+                          Privacy Policy
+                        </p>
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/term">
+                        <p className="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm">
+                          Term and Services
+                        </p>
+                      </Link>
+                    </li>
+
+
+
                     {/* <li>
                       <a
                         class="text-white hover:text-blueGray-800 font-semibold block pb-2 text-sm"
@@ -188,7 +219,7 @@ function Footer() {
             </div>
           </div>
         </div>
-      </footer>
+      </footer >
     </>
   );
 }

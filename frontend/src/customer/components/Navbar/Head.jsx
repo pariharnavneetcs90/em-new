@@ -12,6 +12,7 @@ import {
 import AuthModal from "../../Auth/AuthModal";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser, logout } from "../../../State/Auth/Action";
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 function NavList() {
   return (
@@ -101,12 +102,102 @@ export default function Head() {
 
   return (
     <div className="nav-container mx-auto bg-white">
-      <div className="bg-[#e8e2b0] text-gray-600 py-1 text-center overflow-hidden">
-        <p className="italic font-medium">
+      <div className="bg-[#e8e2b0] text-black py-1 text-center overflow-hidden">
+        {/* <marquee scrollamount="5">
+          <p className="italic font-medium">
+            Be BOLD<span className="ml-8"></span>Be YOU
+            <span className="ml-8"></span>Be UNSTOPPABLE<span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span>
+
+            Be BOLD<span className="ml-8"></span>Be YOU
+            <span className="ml-8"></span>Be UNSTOPPAB<span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span>
+
+            Be BOLD<span className="ml-8"></span>Be YOU
+            <span className="ml-8"></span>Be UNSTOPPABLE
+
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span>
+            Be BOLD<span className="ml-8"></span>Be YOU
+            <span className="ml-8"></span>Be UNSTOPPABLE
+
+          </p>
+
+        </marquee> */}
+
+        <div className="relative flex overflow-x-hidden">
+          <div className="py-1 animate-marquee whitespace-nowrap">
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+
+            {/* <span className="mx-4 text-4xl">1</span> */}
+            {/* <span className="mx-4 text-4xl">2</span>
+            <span className="mx-4 text-4xl">3</span>
+            <span className="mx-4 text-4xl">4</span>
+            <span className="mx-4 text-4xl">5</span> */}
+          </div>
+
+          <div className="absolute top-0 py-1 animate-marquee2 whitespace-nowrap">
+
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+            <span className="ml-8"></span>
+            <FiberManualRecordIcon style={{ fontSize: '10px' }} />
+            <span className="ml-8"></span><span className="italic"> Be BOLD</span>
+            <span className="ml-8"></span><span className="italic">Be YOU</span>
+            <span className="ml-8"></span><span className="italic">Be UNSTOPPABLE</span>
+            {/* <span className="mx-4 text-4xl">6</span> */}
+            {/* <span className="mx-4 text-4xl">7</span>
+            <span className="mx-4 text-4xl">8</span>
+            <span className="mx-4 text-4xl">9</span>
+            <span className="mx-4 text-4xl">10</span> */}
+          </div>
+        </div>
+
+
+
+
+
+        {/* <p className="italic font-medium">
           Be BOLD<span className="ml-8"></span>Be YOU
           <span className="ml-8"></span>Be UNSTOPPABLE
-        </p>
+        </p> */}
       </div>
+
 
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
@@ -122,7 +213,7 @@ export default function Head() {
           <Typography
             variant="small"
             color="blue-gray"
-            className="mt-0.25 italic"
+            className="mt-0.25 "
           >
             EMPRESSA
           </Typography>

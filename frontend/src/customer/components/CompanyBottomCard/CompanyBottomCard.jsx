@@ -4,7 +4,7 @@ import CompanyCarousel from '../CompanyCarousel/CompanyCarousel'
 const CompanyBottomCard = () => {
     return (
         <>
-            <div className='mt-[30px] mb-[100px] bg-[#faf8f1]  mx-auto max-w-[1000px] rounded-lg'>
+            <div className='mt-[30px] mb-[100px] bg-[#faf8f1]  mx-auto max-w-[1000px] rounded-[40px]'>
                 <div className='pt-[50px]'>
                     <h1 className='tracking-widest font-light text-2xl text-center'>
                         IN PARTNERSHIP WITH
