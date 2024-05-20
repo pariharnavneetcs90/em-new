@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import { Avatar, IconButton, Menu, MenuItem } from "@mui/material";
 import { Collapse, Typography, List, ListItem } from "@material-tailwind/react";
 import {
   UserCircleIcon,
@@ -25,6 +25,7 @@ function NavList() {
       >
         <ListItem className="">Our Products</ListItem>
       </Typography>
+
       <Typography
         as={Link}
         to="/about"
@@ -36,12 +37,12 @@ function NavList() {
       </Typography>
       <Typography
         as={Link}
-        to="/"
+        to="/journal"
         variant="small"
         color="blue-gray"
         className="font-medium text-base"
       >
-        <ListItem className="flex items-center gap-2 py-2 pr-4">
+        <ListItem className="">
           Journal
         </ListItem>
       </Typography>
@@ -150,13 +151,15 @@ export default function Head() {
             {/* {authUser ? ( */}
             {auth.user ? (
               <div>
-                <UserCircleIcon
-                  className="h-7 w-7 mt-1 ml-2  `cursor-pointer"
+                <Avatar
+                  className="h-7 w-7 mt-1 ml-2 text-white `cursor-pointer"
                   onClick={handleUserClick}
                   aria-controls={openNav ? "basic-menu" : undefined}
                   aria-haspopup="true"
                   aria-expanded={openNav ? "true" : undefined}
-                />
+                      >
+                        {auth.user?.firstName[0].toUpperCase()}
+                      </Avatar>
                 <Menu
                   id="basic-menu"
                   anchorEl={anchorEl}

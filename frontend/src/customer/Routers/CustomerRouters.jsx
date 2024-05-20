@@ -24,16 +24,14 @@ const CustomerRouters = () => {
                 <Route path='/register' element={<HomePage />}></Route>
                 <Route path='/' element={<HomePage />}></Route>
                 <Route path='/cart' element={<CartEcom />}></Route>
-                {/* <Route path='/products' element={<Products />}></Route> */}
+                <Route path='/products' element={<Product />}></Route>
                 {/* <Route path='/:lavelOne/:lavelTwo/:lavelThree' element={<Product />}></Route> */}
-                <Route path='/product/:productId' element={<ProductDetails />}></Route>
+                <Route path='/products/:productId' element={<ProductDetails />}></Route>
                 <Route path='/checkout' element={<Checkout />}></Route>
                 <Route path='/product-detail/:productId' element={<ProductDetails />}></Route>
                 <Route path='/about' element={<CompanyPage />}></Route>
                 <Route path='/journal' element={<JournalPage />}></Route>
                 <Route path='/journaldetail' element={<JournalDetailPage />}></Route>
-
-
 
                 {/* <Route path="/payment/:orderId" element={<PaymentSuccess />}></Route> */}
 

@@ -31,8 +31,6 @@ const ProductsTable = () => {
     }, [products.deletedProduct])
     return (
         <div className='p-5'>
-
-
             <Card className='mt-2'>
                 <CardHeader title="All Products" />
                 <TableContainer component={Paper}>

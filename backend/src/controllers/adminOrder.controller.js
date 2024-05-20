@@ -1,4 +1,3 @@
-
 const orderService = require("../services/order.service");
 
 const getAllOrders = async (req, res) => {

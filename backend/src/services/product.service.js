@@ -1,79 +1,51 @@
 const Category = require("../models/category.model");
 const Product = require("../models/product.model");
 
-// Create a new product
 async function createProduct(reqData) {
-  let topLevel = await Category.findOne({ name: reqData.topLavelCategory });
+  try {
+    let level = await Category.findOne({ name: reqData.productCategory });
+    if (!level) {
+      const newLevel = new Category({
+        name: reqData.productCategory,
+      });
+      level = await newLevel.save();
+    }
 
-  if (!topLevel) {
-    const topLavelCategory = new Category({
-      name: reqData.topLavelCategory,
-      level: 1,
+    
+    const product = new Product({
+      title: reqData.title,
+      color: reqData.color,
+      description: reqData.description,
+      discountedPrice: reqData.discountedPrice,
+      // discountPercent: reqData.discountPercent,
+      imageUrl: reqData.imageUrl,
+      brand: reqData.brand,
+      price: reqData.price,
+      sizes: reqData.size,
+      quantity: reqData.quantity,
+      category: level._id,
     });
-
-    topLevel = await topLavelCategory.save();
+    const savedProduct = await product.save();
+    return savedProduct;
+  } catch (error) {
+    throw new Error("Error creating product: " + error.message);
   }
-
-  // let secondLevel = await Category.findOne({
-  //   name: reqData.secondLavelCategory,
-  //   parentCategory: topLevel._id,
-  // });
-
-  // if (!secondLevel) {
-  //   const secondLavelCategory = new Category({
-  //     name: reqData.secondLavelCategory,
-  //     parentCategory: topLevel._id,
-  //     level: 2,
-  //   });
-
-  //   secondLevel = await secondLavelCategory.save();
-  // }
-
-  // let thirdLevel = await Category.findOne({
-  //   name: reqData.thirdLavelCategory,
-  //   parentCategory: secondLevel._id,
-  // });
-
-  // if (!thirdLevel) {
-  //   const thirdLavelCategory = new Category({
-  //     name: reqData.thirdLavelCategory,
-  //     parentCategory: secondLevel._id,
-  //     level: 3,
-  //   });
-
-  //   thirdLevel = await thirdLavelCategory.save();
-  // }
-
-  const product = new Product({
-    title: reqData.title,
-    color: reqData.color,
-    description: reqData.description,
-    discountedPrice: reqData.discountedPrice,
-    discountPersent: reqData.discountPersent,
-    imageUrl: reqData.imageUrl,
-    brand: reqData.brand,
-    price: reqData.price,
-    sizes: reqData.size,
-    quantity: reqData.quantity,
-    category: topLevel._id,
-  });
-
-  const savedProduct = await product.save();
-
-  return savedProduct;
 }
+
 // Delete a product by ID
 async function deleteProduct(productId) {
-  const product = await findProductById(productId);
-
-  if (!product) {
-    throw new Error("product not found with id - : ", productId);
+  try {
+    const product = await findProductById(productId);
+    if (!product) {
+      throw new Error("Product not found with id: " + productId);
+    }
+    await Product.findByIdAndDelete(productId);
+    return "Product deleted successfully";
+  } catch (error) {
+    throw new Error("Error deleting product: " + error.message);
   }
-
-  await Product.findByIdAndDelete(productId);
-
-  return "Product deleted Successfully";
 }
+
 
 // Update a product by ID
 async function updateProduct(productId, reqData) {
@@ -91,8 +63,18 @@ async function findProductById(id) {
   return product;
 }
 
+async function getAllProducts() {
+  try {
+    const query = await Product.find({}).exec();
+    console.log("The query result:", query);  
+    return query;
+  } catch (error) {
+    console.error("Error occurred while executing the query:", error);
+  }
+}
+
 // Get all products with filtering and pagination
-async function getAllProducts(reqQuery) {
+async function getAllProducts_Old(reqQuery) {
   let {
     category,
     color,
@@ -106,15 +88,18 @@ async function getAllProducts(reqQuery) {
     pageSize,
   } = reqQuery;
   (pageSize = pageSize || 10), (pageNumber = pageNumber || 1);
-  let query = Product.find().populate("category");
+  // let query = Product.find().populate("category");
 
+let query = await Product.find({}).exec();
+    console.log("The query result:", query);
 
-  if (category) {
-    const existCategory = await Category.findOne({ name: category });
-    if (existCategory)
-      query = query.where("category").equals(existCategory._id);
-    else return { content: [], currentPage: 1, totalPages:1 };
-  }
+  // if (!category == undefined && !category == null) {
+  //   const existCategory = await Category.findOne({ name: category });
+  //   console.log("category ...",existCategory,category )
+  //   if (existCategory)
+  //     query = query.where("category").equals(existCategory._id);
+  //   else return { content: [], currentPage: 1, totalPages:1 };
+  // }
 
   if (color) {
     const colorSet = new Set(color.split(",").map(color => color.trim().toLowerCase()));
