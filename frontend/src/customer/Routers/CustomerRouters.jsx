@@ -16,6 +16,7 @@ import RefundPage from './../pages/RefundPage';
 import PrivacyPage from '../pages/PrivacyPage'
 import TermPage from '../pages/TermPage'
 import ContactUsPage from '../pages/ContactUsPage'
+import TestPage from './../pages/TestPage';
 
 const CustomerRouters = () => {
     return (
@@ -40,6 +41,8 @@ const CustomerRouters = () => {
                 <Route path='/privacy' element={<PrivacyPage />}></Route>
                 <Route path='/term' element={<TermPage />}></Route>
                 <Route path='/contact' element={<ContactUsPage />}></Route>
+                <Route path='/test' element={<TestPage />}></Route>
+
 
 
 
