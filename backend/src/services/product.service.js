@@ -33,6 +33,18 @@ async function createProduct(reqData) {
 }
 
 // Delete a product by ID
+// async function deleteProduct(productId) {
+//   try {
+//     const product = await findProductById(productId);
+//     if (!product) {
+//       throw new Error("Product not found with id: " + productId);
+//     }
+//     await Product.findByIdAndDelete(productId);
+//     return "Product deleted successfully";
+//   } catch (error) {
+//     throw new Error("Error deleting product: " + error.message);
+//   }
+// }
 async function deleteProduct(productId) {
   try {
     const product = await findProductById(productId);
@@ -40,11 +52,13 @@ async function deleteProduct(productId) {
       throw new Error("Product not found with id: " + productId);
     }
     await Product.findByIdAndDelete(productId);
-    return "Product deleted successfully";
+    const products = await Product.find({});
+    return {message: "Product deleted successfully", products};
   } catch (error) {
     throw new Error("Error deleting product: " + error.message);
   }
 }
+
 
 
 // Update a product by ID

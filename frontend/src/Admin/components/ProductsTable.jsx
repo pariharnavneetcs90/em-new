@@ -5,12 +5,9 @@ import { useDispatch, useSelector } from 'react-redux'
 
 const ProductsTable = () => {
     const dispatch = useDispatch();
-    const { products } = useSelector(store => store);
-
-    console.log("products----", products)
+    const { products } = useSelector(state => state.products);
 
     const handleProductDelete = (productID) => {
-        console.log("hello", productID)
         dispatch(deleteProduct(productID))
     }
 
@@ -46,10 +43,10 @@ const ProductsTable = () => {
                                 <TableCell align="left">Delete</TableCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody>
-                            {products?.products?.content?.map((item) => (
+                        <TableBody >
+                            {products.map((item,index) => (
                                 <TableRow
-                                    key={item.name}
+                                    key={index}
                                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                                 >
                                     <TableCell align="left">
@@ -63,9 +60,8 @@ const ProductsTable = () => {
                                     <TableCell align="left">{item.price}</TableCell>
                                     <TableCell align="left">{item.quantity}</TableCell>
                                     <TableCell align="left">
-                                        <Button onClick={() => handleProductDelete(item._id)} >Delete</Button>
+                                        <Button onClick={() => handleProductDelete(item._id)}>Delete</Button>
                                     </TableCell>
-
                                 </TableRow>
                             ))}
                         </TableBody>

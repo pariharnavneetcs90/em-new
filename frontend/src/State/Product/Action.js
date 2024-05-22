@@ -52,15 +52,15 @@ export const createProduct = (product) => async (dispatch) => {
 export const deleteProduct = (productId) => async (dispatch) => {
     try {
         dispatch({ type: DELETE_PRODUCT_REQUEST });
-        console.log("inside function", `${API_BASE_URL}/api/admin/products/${productId}`)
         const { data } = await api.delete(`${API_BASE_URL}/api/admin/products/${productId}`);
-        console.log("delete product", data)
         dispatch({
             type: DELETE_PRODUCT_SUCCESS,
-            payload: productId,
+            payload: data.products,
         });
 
-        console.log("created product ", data);
+
+
+        // console.log("created product ", data);
     } catch (error) {
         dispatch({
             type: DELETE_PRODUCT_FAILURE, payload: error.message,

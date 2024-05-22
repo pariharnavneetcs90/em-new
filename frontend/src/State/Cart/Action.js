@@ -25,7 +25,7 @@ export const addItemToCart = (reqData) => async (dispatch) => {
     }
 }
 
-export const removeCartItem = (cartItemId) => async (dispatch) => {
+export const removeCartItem = ({cartItemId, jwt}) => async (dispatch) => {
     dispatch({ type: REMOVE_CART_ITEM_REQUEST })
 
     try {

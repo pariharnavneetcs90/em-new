@@ -5,7 +5,6 @@ const productService = require("../services/product.service.js")
 async function createProduct(req, res) {
   try {
     const {} = req.body
-    console.log("creating product", req.body)
     const product = await productService.createProduct(req.body);
     return res.status(201).json(product);
   } catch (err) {
@@ -17,8 +16,8 @@ async function createProduct(req, res) {
 async function deleteProduct(req, res) {
   try {
     const productId = req.params.id;
-    const message = await productService.deleteProduct(productId);
-    return res.json({ message });
+    const data = await productService.deleteProduct(productId);
+    return res.json(data);
   } catch (err) {
     return res.status(500).json({ error: err.message });
   }

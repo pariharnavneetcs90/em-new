@@ -1,81 +1,82 @@
 const CartItem = require("../models/cartItem.model.js");
-const userService=require("../services/user.service.js");
+const userService = require("./user.service.js");
 
+// // Create a new cart item
+// async function createCartItem(cartItemData) {
+//   const cartItem = new CartItem(cartItemData);
+//   cartItem.quantity = 1;
+//   cartItem.price = cartItem.product.price * cartItem.quantity;
+//   cartItem.discountedPrice = cartItem.product.discountedPrice * cartItem.quantity;
+//   cartItem.userId = cartItemData.userId; // Assign user ID to the cart item
 
-// Create a new cart item
-async function createCartItem(cartItemData) {
-  const cartItem = new CartItem(cartItemData);
-  cartItem.quantity = 1;
-  cartItem.price = cartItem.product.price * cartItem.quantity;
-  cartItem.discountedPrice = cartItem.product.discountedPrice * cartItem.quantity;
+//   const createdCartItem = await cartItem.save();
+//   return createdCartItem;
+// }
 
-  const createdCartItem = await cartItem.save();
-  return createdCartItem;
-}
-
-// Update an existing cart item
+// // Update an existing cart item
 async function updateCartItem(userId, cartItemId, cartItemData) {
-  const item = await findCartItemById(cartItemId)
-  // console.log("cartItemData ",item)
-
-  if(!item){
-    throw new Error("cart item not found : ",cartItemId)
-  }
-  const user = await userService.findUserById(item.userId);
-
-  if(!user){
-    throw new Error("user not found : ",userId)
-  }
-
- 
-
-  if (user.id === userId.toString()) {
-    item.quantity = cartItemData.quantity;
-    item.price = item.quantity * item.product.price;
-    item.discountedPrice = item.quantity * item.product.discountedPrice;
-
-    const updatedCartItem = await item.save();
-    return updatedCartItem;
-  } else {
-    throw new Error("You can't update another user's cart_item");
-  }
-}
-
-// Check if a cart item already exists in the user's cart
-async function isCartItemExist(cart, product, size, userId) {
-  const cartItem = await CartItem.findOne({ cart, product, size, userId });
-  return cartItem;
-}
-
-// Remove a cart item
-async function removeCartItem(userId, cartItemId) {
-  // console.log(`userId - ${userId}, cartItemId - ${cartItemId}`);
-  
   const cartItem = await findCartItemById(cartItemId);
-  const user = await userService.findUserById(cartItem.userId);
-  const reqUser = await userService.findUserById(userId);
 
-  if (user.id === reqUser.id) {
-    await CartItem.findByIdAndDelete(cartItem.id);
-  } else {
-    throw new UserException("You can't remove another user's item");
+  if (!cartItem) {
+    throw new Error("Cart item not found: " + cartItemId);
   }
+
+  if (cartItem.userId.toString() !== userId.toString()) {
+    throw new Error("Unauthorized action");
+  }
+
+  cartItem.quantity = cartItemData.quantity;
+  cartItem.price = cartItem.quantity * cartItem.product.price;
+  cartItem.discountedPrice = cartItem.quantity * cartItem.product.discountedPrice;
+
+  const updatedCartItem = await cartItem.save();
+  return updatedCartItem;
 }
+
+// // Check if a cart item already exists in the user's cart
+// async function isCartItemExist(cart, product, size, userId) {
+//   const cartItem = await CartItem.findOne({ cart, product, size, userId });
+//   return cartItem;
+// }
+
+// // Remove a cart item
+async function removeCartItem(userId, cartItemId) {
+  console.log("console at cartItem.service", cartItemId);
+  const cartItem = await findCartItemById(cartItemId);
+
+  if (!cartItem) {
+    throw new Error("Cart item not found: " + cartItemId);
+  }
+
+  // Convert userId to string if it's an object
+  const userIdString = typeof userId === 'object' ? userId.toString() : userId;
+
+  console.log("userIdString:", userIdString);
+  console.log("cartItem.userId:", cartItem.userId);
+
+  if (cartItem.userId.toString() !== userIdString) {
+    throw new Error("Unauthorized action");
+  }
+
+  await CartItem.findByIdAndDelete(cartItemId);
+}
+
+
 
 // Find a cart item by its ID
 async function findCartItemById(cartItemId) {
-  const cartItem = await CartItem.findById(cartItemId).populate("product");;
+  const cartItem = await CartItem.findById(cartItemId).populate("product");
   if (cartItem) {
     return cartItem;
   } else {
-    throw new CartItemException(`CartItem not found with id: ${cartItemId}`);
+    throw new Error(`CartItem not found with id: ${cartItemId}`);
   }
 }
 
 module.exports = {
-  createCartItem,
+//   createCartItem,
   updateCartItem,
-  isCartItemExist,
+//   isCartItemExist,
   removeCartItem,
   findCartItemById,
 };
