@@ -41,14 +41,11 @@ const product = {
         { name: 'Black', class: 'bg-gray-900', selectedClass: 'ring-gray-900' },
     ],
     sizes: [
-        { name: 'XXS', inStock: false },
-        { name: 'XS', inStock: true },
         { name: 'S', inStock: true },
         { name: 'M', inStock: true },
         { name: 'L', inStock: true },
         { name: 'XL', inStock: true },
         { name: '2XL', inStock: true },
-        { name: '3XL', inStock: true },
     ],
     description:
         'The Basic Tee 6-Pack allows you to fully express your vibrant personality with three grayscale options. Feeling adventurous? Put on a heather gray tee. Want to be a trendsetter? Try our exclusive colorway: "Black". Need to add an extra pop of color to your outfit? Our white tee has you covered.',
@@ -94,7 +91,7 @@ export default function ProductDetails() {
     return (
         <div className="bg-white">
             <div className="pt-6">
-                <nav aria-label="Breadcrumb">
+                {/* <nav aria-label="Breadcrumb">
                     <ol role="list" className="mx-auto flex max-w-2xl items-center space-x-2 px-4 sm:px-6 lg:max-w-7xl lg:px-8">
                         {product.breadcrumbs.map((breadcrumb) => (
                             <li key={breadcrumb.id}>
@@ -121,32 +118,20 @@ export default function ProductDetails() {
                             </a>
                         </li>
                     </ol>
-                </nav>
+                </nav> */}
 
                 {/* ye niche jo section hai made by me */}
                 <section className='grid grid-cols-1 lg:grid-cols-2 gap-x-8 gap-y-10 px-4 pt-10' >
 
                     {/* Image gallery */}
                     <div className="flex flex-col items-center ">
-                        <div className="overflow-hidden rounded-lg max-w-[30rem] max-h-[35rem]">
+                        <div className="overflow-hidden rounded-lg max-w-[20rem] max-h-[35rem]">
                             <img
                                 src={products.product?.imageUrl}
                                 alt={product.images[0].alt}
                                 className="h-full w-full object-cover object-center"
                             />
                         </div>
-
-                        {/* {product.images.map((image) => <div className="flex flex-col flex-wrap space-x-5 justify-center">
-                            <div className="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg max-w-[5rem] mt-4">
-                                <img
-                                    src={product.images[1].src}
-                                    alt={product.images[1].alt}
-                                    className="h-full w-full object-cover object-center"
-                                />
-                            </div>
-
-                        </div>)} */}
-
 
                     </div>
                     {/* Product info */}
@@ -164,11 +149,10 @@ export default function ProductDetails() {
                         <div className="mt-4 lg:row-span-3 lg:mt-0">
                             <h2 className="sr-only">Product information</h2>
                             <div className='flex space-x-5 items-center text-gray-900 pt-6'>
-                                <p className='font-semibold'>{products.product?.discountedPrice}</p>
-                                <p className='line-through opacity-50'>{products.product?.price}</p>
-                                <p className='text-green-600 font-semibold'>{products.product?.discountPersent}%OFF</p>
+                                <p className='text-green-600 font-semibold text-lg'>{"₹" + products.product?.discountedPrice}</p>
+                                <p className='line-through opacity-50'>{"₹" + products.product?.price}</p>
+                                <p className='text-red-500 font-semibold'>{((1- products.product?.discountedPrice / products?.product?.price)* 100).toFixed(0)+ "% off"}</p>
                             </div>
-
                             {/* Reviews */}
                             <div className="mt-6">
                                 <h3 className="sr-only">Reviews</h3>
@@ -194,7 +178,7 @@ export default function ProductDetails() {
 
                             <form className="mt-10">
                                 {/* Colors */}
-                                <div>
+                                {/* <div>
                                     <h3 className="text-sm font-medium text-gray-900">Color</h3>
 
                                     <RadioGroup value={selectedColor} onChange={setSelectedColor} className="mt-4">
@@ -227,7 +211,7 @@ export default function ProductDetails() {
                                             ))}
                                         </div>
                                     </RadioGroup>
-                                </div>
+                                </div> */}
 
                                 {/* Sizes */}
                                 <div className="mt-10">

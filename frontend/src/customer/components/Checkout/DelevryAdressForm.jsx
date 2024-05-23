@@ -39,8 +39,8 @@ export default function DelevryAdressForm({ handleNext }) {
 
   return (
     <Grid container spacing={4}>
-      <Grid item xs={12} lg={5}>
-        <Box className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll ">
+      <Grid item xs={12} lg={2}>
+        {/* <Box className="border rounded-md shadow-md h-[30.5rem] overflow-y-scroll ">
           {auth.user?.addresses.map((item) => (
             <div
               onClick={() => setSelectedAdress(item)}
@@ -61,7 +61,7 @@ export default function DelevryAdressForm({ handleNext }) {
               )}
             </div>
           ))}
-        </Box>
+        </Box> */}
       </Grid>
       <Grid item xs={12} lg={7}>
         <Box className="border rounded-md shadow-md p-5">
@@ -146,7 +146,7 @@ export default function DelevryAdressForm({ handleNext }) {
                   variant="contained"
                   color="primary"
                 >
-                  Deliverd Here
+                  Deliver Here
                 </Button>
               </Grid>
             </Grid>

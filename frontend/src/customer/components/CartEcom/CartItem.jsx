@@ -6,7 +6,7 @@ import { IconButton } from "@mui/material";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 
-const CartItem = ({ item,showButton }) => {
+const CartItem = ({ item, showButton }) => {
   const dispatch = useDispatch();
   const jwt = localStorage.getItem("jwt");
 
@@ -14,11 +14,16 @@ const CartItem = ({ item,showButton }) => {
     const data = { cartItemId: item?._id, jwt };
     dispatch(removeCartItem(data));
   };
-  const handleUpdateCartItem=(num)=>{
-    const data={data:{quantity:item.quantity+num}, cartItemId:item?._id, jwt}
-    console.log("update data ",data)
-    dispatch(updateCartItem(data))
-  }
+
+  const handleUpdateCartItem = (num) => {
+    const data = {
+      data: { quantity: item.quantity + num },
+      cartItemId: item?._id,
+      jwt,
+    };
+    console.log("update data ", data);
+    dispatch(updateCartItem(data));
+  };
   return (
     <div className="p-5 shadow-lg border rounded-md">
       <div className="flex items-center">
@@ -34,35 +39,44 @@ const CartItem = ({ item,showButton }) => {
           <p className="opacity-70">Size: {item?.size},White</p>
           <p className="opacity-70 mt-2">Seller: {item?.product?.brand}</p>
           <div className="flex space-x-2 items-center pt-3">
-            <p className="opacity-50 line-through">₹{item?.product?.price}</p>
             <p className="font-semibold text-lg">
               ₹{item?.product?.discountedPrice}
             </p>
-            <p className="text-green-600 font-semibold">
-              {item?.product?.discountPersent}% off
-            </p>
+            <p className="opacity-50 line-through">₹{item?.product?.price}</p>
+            <p className="text-red-500 font-semibold">{((1- item?.product?.discountedPrice / item?.product?.price)* 100).toFixed(0)+ "% off"}</p>
           </div>
         </div>
       </div>
-     {showButton&& <div className="lg:flex items-center lg:space-x-10 pt-4">
-        <div className="flex items-center space-x-2 ">
-          <IconButton onClick={()=>handleUpdateCartItem(-1)} disabled={item?.quantity<=1} color="primary" aria-label="add an alarm">
-            <RemoveCircleOutlineIcon />
-          </IconButton>
+      {showButton && (
+        <div className="lg:flex items-center lg:space-x-10 pt-4">
+          <div className="flex items-center space-x-2 ">
+            <IconButton
+              onClick={() => handleUpdateCartItem(-1)}
+              disabled={item?.quantity <= 1}
+              color="primary"
+              aria-label="add an alarm"
+            >
+              <RemoveCircleOutlineIcon />
+            </IconButton>
 
-          <span className="py-1 px-7 border rounded-sm">{item?.quantity}</span>
-          <IconButton onClick={()=>handleUpdateCartItem(1)} color="primary" aria-label="add an alarm">
-            <AddCircleOutlineIcon />
-          </IconButton>
+            <span className="py-1 px-7 border rounded-sm">
+              {item?.quantity}
+            </span>
+            <IconButton
+              onClick={() => handleUpdateCartItem(1)}
+              color="primary"
+              aria-label="add an alarm"
+            >
+              <AddCircleOutlineIcon />
+            </IconButton>
+          </div>
+          <div className="flex text-sm lg:text-base mt-5 lg:mt-0">
+            <Button onClick={handleRemoveItemFromCart} variant="text">
+              Remove{" "}
+            </Button>
+          </div>
         </div>
-        <div className="flex text-sm lg:text-base mt-5 lg:mt-0">
-          
-          <Button onClick={handleRemoveItemFromCart} variant="text">
-            Remove{" "}
-          </Button>
-          
-        </div>
-      </div>}
+      )}
     </div>
   );
 };
